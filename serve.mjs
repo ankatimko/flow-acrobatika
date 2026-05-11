@@ -20,6 +20,9 @@ const types = {
   '.json': 'application/json; charset=utf-8',
   '.woff': 'font/woff',
   '.woff2':'font/woff2',
+  '.mp4':  'video/mp4',
+  '.mov':  'video/quicktime',
+  '.webm': 'video/webm',
 };
 
 createServer(async (req, res) => {
