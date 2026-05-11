@@ -1195,28 +1195,36 @@
     prev && prev.addEventListener('click', () => wall.scrollBy({ left: -step(), behavior: 'smooth' }));
     next && next.addEventListener('click', () => wall.scrollBy({ left:  step(), behavior: 'smooth' }));
 
-    // Mouse drag-to-scroll (touch already pans natively)
+    // Mouse drag-to-scroll (touch pans natively).
+    // No setPointerCapture — it would re-target the click event onto .video-wall
+    // and the card's click handler would never see it. .dragging class is added
+    // only AFTER real movement, so a plain click never gets pointer-events:none.
     let down = false, startX = 0, startScroll = 0, moved = 0;
     wall.addEventListener('pointerdown', e => {
+      moved = 0;
       if (e.pointerType !== 'mouse') return;
       down = true;
       startX = e.clientX;
       startScroll = wall.scrollLeft;
-      moved = 0;
-      wall.classList.add('dragging');
-      wall.setPointerCapture && wall.setPointerCapture(e.pointerId);
     });
     wall.addEventListener('pointermove', e => {
       if (!down) return;
       const dx = e.clientX - startX;
-      moved = Math.max(moved, Math.abs(dx));
+      const abs = Math.abs(dx);
+      if (abs > moved) moved = abs;
+      if (moved > 5 && !wall.classList.contains('dragging')) wall.classList.add('dragging');
       wall.scrollLeft = startScroll - dx;
     });
-    const stop = () => { down = false; wall.classList.remove('dragging'); };
+    const stop = () => {
+      down = false;
+      // Defer removing the class so the trailing 'click' fires with pointer-events
+      // still suppressed on cards — preventing a play toggle right after a drag.
+      requestAnimationFrame(() => wall.classList.remove('dragging'));
+    };
     wall.addEventListener('pointerup', stop);
     wall.addEventListener('pointercancel', stop);
     wall.addEventListener('pointerleave', stop);
-    // Swallow the click that follows a drag so it doesn't toggle playback
+    // Belt-and-braces: also swallow the click after a real drag.
     wall.addEventListener('click', e => {
       if (moved > 8) { e.preventDefault(); e.stopPropagation(); moved = 0; }
     }, true);
