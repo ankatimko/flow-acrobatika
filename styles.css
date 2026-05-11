@@ -273,6 +273,21 @@ section.tight { padding: clamp(56px, 7vw, 96px) 0; }
   margin-top: 40px;
   display: flex; flex-wrap: wrap; gap: 18px; align-items: center;
 }
+/* Mobile-only "Как проходит занятие" button placed above the hero text.
+   On mobile we also hide the desktop .hero-cta (both pink and outline buttons)
+   to remove duplication of "Записаться" — sticky-mobile CTA covers conversion. */
+.hero-cta-mobile { display: none; }
+@media (max-width: 700px) {
+  .hero-cta-mobile {
+    display: inline-flex;
+    margin: 4px 0 24px;
+    height: 44px;
+    padding: 0 18px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+  .hero .hero-cta { display: none; }
+}
 .hero-meta {
   margin-top: 18px;
   font-family: var(--kod);
@@ -845,7 +860,7 @@ section.tight { padding: clamp(56px, 7vw, 96px) 0; }
 .tl-step:nth-child(2) .marker { border-color: var(--pink); color: var(--pink); }
 .tl-step:nth-child(3) .marker { border-color: var(--pink); background: var(--pink); color: #fff; }
 .tl-step:nth-child(4) .marker { background: var(--gray); color: #fff; border-color: var(--gray); }
-.tl-step h4 { color: var(--gray-light); margin-bottom: 14px; }
+.tl-step .tl-label { font-family: var(--kod); font-size: 18px; font-weight: 500; color: var(--gray-light); margin: 0 0 14px; }
 .tl-step h3 { font-family: var(--kod); font-weight: 500; font-size: 22px; line-height: 1.3; text-transform: none; letter-spacing: -0.005em; }
 @media (max-width: 900px) {
   .timeline { grid-template-columns: 1fr; gap: 32px; }
@@ -859,7 +874,7 @@ section.tight { padding: clamp(56px, 7vw, 96px) 0; }
     padding: 0;
   }
   .tl-step .marker { margin-bottom: 0; grid-row: 1 / span 2; align-self: start; }
-  .tl-step h4 { margin: 8px 0 0; align-self: end; }
+  .tl-step .tl-label { margin: 8px 0 0; align-self: end; }
   .tl-step h3 { font-size: 18px; }
 }
 
@@ -1008,7 +1023,7 @@ section.tight { padding: clamp(56px, 7vw, 96px) 0; }
   line-height: 1;
   color: var(--pink);
 }
-.step .body h4 { font-family: var(--kod); font-size: 19px; font-weight: 500; text-transform: none; letter-spacing: -0.005em; margin-bottom: 4px; }
+.step .body h3 { font-family: var(--kod); font-size: 19px; font-weight: 500; text-transform: none; letter-spacing: -0.005em; margin: 0 0 4px; }
 .step .body p { color: var(--gray-light); font-size: 14px; }
 .step .dur {
   font-family: var(--kod);
@@ -1342,7 +1357,8 @@ section.tight { padding: clamp(56px, 7vw, 96px) 0; }
   border-radius: 14px;
 }
 .price-extras .extra .ico { font-family: var(--kod); font-size: 24px; line-height: 1; color: var(--pink); margin-bottom: 10px; }
-.price-extras .extra h4 { font-family: var(--kod); font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+.price-extras .extra h3,
+.price-extras .extra h4 { font-family: var(--kod); font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 6px; }
 .price-extras .extra p { font-size: 13px; color: rgba(255,255,255,0.6); }
 @media (max-width: 1000px) {
   .price-grid { grid-template-columns: 1fr 1fr; }
@@ -1661,7 +1677,16 @@ section.tight { padding: clamp(56px, 7vw, 96px) 0; }
   z-index: 90;
   display: none;
 }
-.sticky-mobile .btn { width: 100%; justify-content: center; box-shadow: 0 18px 40px -10px rgba(255,60,223,0.55); }
+.sticky-mobile .btn {
+  width: 100%;
+  justify-content: center;
+  white-space: normal;
+  padding: 0 18px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  box-shadow: 0 18px 40px -10px rgba(255,60,223,0.55);
+}
+.sticky-mobile .btn .arrow { flex-shrink: 0; }
 @media (max-width: 700px) {
   .sticky-mobile { display: block; }
   body { padding-bottom: 80px; }
@@ -2037,6 +2062,148 @@ section.tight { padding: clamp(56px, 7vw, 96px) 0; }
    reads as a clean 3+2 layout instead of an indented half row. */
 #what .conf-grid .conf-item:nth-child(3) { border-right: 0; }
 #what .conf-grid .conf-item:nth-child(4) { padding-left: 0; }
+
+/* Pricing mount-point — reserve height so JSON load doesn't shift layout */
+.pricing-mount { min-height: 480px; }
+@media (max-width: 900px) { .pricing-mount { min-height: 720px; } }
+
+/* Breadcrumbs — small nav above hero on desktop, hidden on mobile.
+   Structured BreadcrumbList is in JSON-LD so SEO still benefits on mobile. */
+.breadcrumbs {
+  position: absolute;
+  top: 96px; left: 0; right: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.breadcrumbs > .wrap { pointer-events: auto; }
+.breadcrumbs ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  font-family: var(--kod);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.breadcrumbs li { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.45); }
+.breadcrumbs li + li::before { content: "›"; color: rgba(255,255,255,0.3); }
+.breadcrumbs a { color: rgba(255,255,255,0.6); transition: color .2s ease; }
+.breadcrumbs a:hover { color: #fff; }
+.breadcrumbs [aria-current="page"] { color: #fff; }
+@media (max-width: 700px) {
+  .breadcrumbs { display: none; }
+}
+
+/* Client-videos horizontal wall */
+.videos-sec { padding-top: clamp(72px, 9vw, 120px); padding-bottom: clamp(72px, 9vw, 120px); }
+.videos-sec .section-head { grid-template-columns: auto 1fr auto; gap: 32px 48px; align-items: end; }
+.videos-sec .head-aside { max-width: 380px; font-size: 15px; color: var(--gray-light); line-height: 1.5; margin: 0; justify-self: end; }
+@media (max-width: 900px) {
+  .videos-sec .section-head { grid-template-columns: auto 1fr; }
+  .videos-sec .head-aside { grid-column: 1 / -1; max-width: none; justify-self: start; }
+}
+.video-wall-wrap {
+  position: relative;
+  margin-top: clamp(40px, 5vw, 64px);
+}
+.video-wall {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: var(--pad-x);
+  scroll-padding-right: var(--pad-x);
+  padding: 8px var(--pad-x) 24px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
+}
+.video-wall.dragging { cursor: grabbing; scroll-behavior: auto; }
+.video-wall.dragging .video-card { pointer-events: none; }
+.video-wall::-webkit-scrollbar { display: none; }
+.video-card {
+  flex: 0 0 auto;
+  width: clamp(220px, 24vw, 280px);
+  aspect-ratio: 9 / 16;
+  border-radius: 28px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  position: relative;
+  cursor: pointer;
+  background: #0e0e11;
+  box-shadow: 0 20px 40px -16px rgba(0,0,0,0.35);
+  transition: transform .25s ease, box-shadow .25s ease;
+  isolation: isolate;
+}
+.video-card:hover { transform: translateY(-4px); box-shadow: 0 26px 50px -16px rgba(0,0,0,0.45); }
+.video-card video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+.video-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 50%;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+  transition: opacity .25s ease;
+  z-index: 1;
+}
+.video-card.playing::after { opacity: 0; }
+.video-card .video-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+  box-shadow: 0 12px 28px -8px rgba(0,0,0,0.4);
+  transition: opacity .2s ease, transform .25s ease;
+}
+.video-card .video-play svg { width: 22px; height: 22px; color: var(--gray); margin-left: 3px; }
+.video-card.playing .video-play { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+.video-card:hover .video-play { transform: translate(-50%, -50%) scale(1.06); }
+
+.vw-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--gray);
+  box-shadow: 0 14px 30px -8px rgba(0,0,0,0.35);
+  opacity: 0;
+  transition: opacity .2s ease, background .2s ease;
+  z-index: 3;
+}
+.vw-nav svg { width: 16px; height: 16px; }
+.vw-nav:hover { background: #fff; }
+.vw-nav:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; opacity: 1; }
+.vw-prev { left: 16px; }
+.vw-next { right: 16px; }
+.video-wall-wrap:hover .vw-nav { opacity: 1; }
+@media (hover: none), (max-width: 700px) {
+  .vw-nav { display: none; }
+}
 
 /* Floating brand chips overlaying the hero visual */
 .hero-chip {

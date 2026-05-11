@@ -2,16 +2,151 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Банджи-фитнес в СПб — студия FLOW на Озерках | Пробное за 1 000 ₽</title>
-<meta name="description" content="Банджи-фитнес в Санкт-Петербурге. Минус 5 кг за месяц без боли в мышцах. Мини-группы 3–7 человек, 10 направлений по единому абонементу. Пробное за 1 000 ₽. Метро Озерки." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#242427" />
 
+<title>Банджи-фитнес в СПб — студия Bungee Family на Озерках | Пробное за 1 000 ₽</title>
+<meta name="description" content="Банджи-фитнес в Санкт-Петербурге. Минус 5 кг за месяц без боли в мышцах. Мини-группы 3–7 человек, 10 направлений по единому абонементу. Пробное за 1 000 ₽. Метро Озерки." />
+<meta name="keywords" content="банджи фитнес спб, банджи озерки, летающий фитнес, банджи для похудения" />
+<meta name="author" content="FLOW · Fem Training Lab" />
+
+<!-- TODO: confirm production URL before launch -->
+<link rel="canonical" href="https://flowtraining.ru/bungee/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Bungee Family · банджи-фитнес FLOW" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="Банджи-фитнес в СПб — студия Bungee Family на Озерках" />
+<meta property="og:description" content="Минус 5 кг за месяц без боли в мышцах. Мини-группы 3–7 человек. Пробное за 1 000 ₽. Метро Озерки." />
+<meta property="og:url" content="https://flowtraining.ru/bungee/" />
+<!-- TODO: create dedicated 1200×630 OG preview at assets/images/og-bungee-family.jpg -->
+<meta property="og:image" content="https://flowtraining.ru/assets/images/og-bungee-family.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Bungee Family — банджи-фитнес студия на Озерках в Санкт-Петербурге" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Банджи-фитнес в СПб — Bungee Family на Озерках" />
+<meta name="twitter:description" content="Минус 5 кг за месяц без боли в мышцах. Мини-группы 3–7 человек. Пробное за 1 000 ₽." />
+<meta name="twitter:image" content="https://flowtraining.ru/assets/images/og-bungee-family.jpg" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" href="assets/images/Sign.png" />
+<link rel="apple-touch-icon" href="assets/images/Sign.png" />
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- Critical hero asset preload -->
+<link rel="preload" as="image" href="assets/silh-jump.svg" />
+
+<!--
+  TODO (perf, offline): convert ./assets/images/**/*.{jpg,png} to WebP +
+  fallback via <picture> in the studio slider and hero. The ozerki/ folder
+  is the biggest asset bucket — main win on LCP.
+  TODO (perf, build step): extract critical CSS for first paint and inline
+  inside <style> before styles.css to remove render-blocking.
+-->
 <link rel="stylesheet" href="styles.css" />
-<link rel="icon" type="image/png" href="assets/images/Sign.png" />
-<link rel="apple-touch-icon" href="assets/images/Sign.png" />
+
+<!-- TODO: Yandex.Metrika counter — вставить тег от Я.Метрики сюда -->
+<!-- TODO: Google Analytics (gtag.js) — вставить тег GA сюда -->
+
+<!-- ───────── Schema.org / JSON-LD ───────── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://flowtraining.ru/#organization",
+      "name": "FLOW",
+      "alternateName": "FLOW Fem Training Lab",
+      "url": "https://flowtraining.ru/",
+      "logo": "https://flowtraining.ru/assets/images/Sign.png",
+      "sameAs": [
+        "https://www.instagram.com/flow.training.lab",
+        "https://t.me/flow_manager",
+        "https://vk.com/flowtrainingspace"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://flowtraining.ru/bungee/#webpage",
+      "url": "https://flowtraining.ru/bungee/",
+      "name": "Банджи-фитнес в СПб — студия Bungee Family на Озерках",
+      "inLanguage": "ru-RU",
+      "isPartOf": { "@id": "https://flowtraining.ru/#organization" },
+      "description": "Банджи-фитнес в Санкт-Петербурге. Минус 5 кг за месяц без боли в мышцах. Мини-группы 3–7 человек, 10 направлений по единому абонементу. Пробное за 1 000 ₽. Метро Озерки."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://flowtraining.ru/bungee/#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://flowtraining.ru/" },
+        { "@type": "ListItem", "position": 2, "name": "Студии", "item": "https://flowtraining.ru/#studios" },
+        { "@type": "ListItem", "position": 3, "name": "Bungee Family", "item": "https://flowtraining.ru/bungee/" }
+      ]
+    },
+    {
+      "@type": ["HealthClub", "SportsActivityLocation"],
+      "@id": "https://flowtraining.ru/bungee/#studio",
+      "name": "Bungee Family · студия банджи-фитнеса на Озерках",
+      "alternateName": "FLOW Bungee",
+      "url": "https://flowtraining.ru/bungee/",
+      "image": "https://flowtraining.ru/assets/images/ozerki/IMG_2363.jpg",
+      "telephone": "+79810022408",
+      "email": "flowtraininglab@gmail.com",
+      "priceRange": "₽₽",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Есенина, 1, корп. 1",
+        "addressLocality": "Санкт-Петербург",
+        "addressCountry": "RU"
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "22:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "10:30", "closes": "18:00" }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "412",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Парковка", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Душевые", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true }
+      ],
+      "parentOrganization": { "@id": "https://flowtraining.ru/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://flowtraining.ru/bungee/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "А что если у меня не будет времени на занятия?", "acceptedAnswer": { "@type": "Answer", "text": "Все наши абонементы имеют срок действия от 1 до 6 месяцев — выбирай комфортный. Плюс в каждом есть гостевые посещения для подруги, чтобы тренировки не пропали. И заморозка — на случай форс-мажора." } },
+        { "@type": "Question", "name": "Для меня это дорого", "acceptedAnswer": { "@type": "Answer", "text": "Мы дороже сетевого клуба, потому что у нас группа 3–7 человек, а не 25. Один час с нашим тренером даёт результат, на который в обычном зале уходит 3 часа. Утренний абонемент — на 30% дешевле, а пробное стоит 1 000 ₽ — посчитай сама после первой тренировки." } },
+        { "@type": "Question", "name": "А что если не подойдёт расписание?", "acceptedAnswer": { "@type": "Answer", "text": "Расписание гибкое — занятия с 10:00 до 22:00 в будни, с 10:30 до 18:00 в выходные. На банджи в день обычно 4–6 слотов на выбор. Если ни один не подойдёт — поможем подобрать индивидуальные." } },
+        { "@type": "Question", "name": "Что будет, если не понравится тренер?", "acceptedAnswer": { "@type": "Answer", "text": "В студии 5 тренеров банджи, у каждого свой подход. Если конкретный тренер не зашёл — администратор поможет подобрать другого. У нас есть клиентки, которые ходят к двум тренерам по очереди — обе нравятся по-разному." } },
+        { "@type": "Question", "name": "Боюсь, что закончится мотивация", "acceptedAnswer": { "@type": "Answer", "text": "Это нормально, она у всех заканчивается. Поэтому у нас мини-группы — ты знаешь всех по именам, и пропустить тренировку «по тихому» не получится. Плюс программа меняется каждые 2 месяца — тебе не успевает наскучить." } },
+        { "@type": "Question", "name": "Я с лишним весом — выдержат ли резинки?", "acceptedAnswer": { "@type": "Answer", "text": "Резинки рассчитаны на вес до 120 кг. У нас занимаются клиентки и 100+ кг — это, наоборот, идеальный фитнес для них, потому что нет нагрузки на колени." } },
+        { "@type": "Question", "name": "У меня больная спина, колени или грыжа — можно?", "acceptedAnswer": { "@type": "Answer", "text": "Банджи разрабатывали в том числе как реабилитационный фитнес. Ударная нагрузка минимальная. Перед началом — консультация с тренером, при серьёзных диагнозах — справка от врача." } },
+        { "@type": "Question", "name": "Что надеть и взять с собой?", "acceptedAnswer": { "@type": "Answer", "text": "Лосины (обязательно — резинки трутся об открытую кожу), топ, носки. Воду. Душевая, фен, средства ухода — есть у нас, можно ничем не запасаться." } },
+        { "@type": "Question", "name": "Когда увижу результат?", "acceptedAnswer": { "@type": "Answer", "text": "Если ходишь 2–3 раза в неделю — минус 3–5 кг через месяц, минус 8–10 кг через 3 месяца. Без диет, при обычном питании." } },
+        { "@type": "Question", "name": "Можно ли мужчинам?", "acceptedAnswer": { "@type": "Answer", "text": "Группы только женские. Для мужчин — индивидуальные занятия, договариваемся отдельно." } }
+      ]
+    }
+  ]
+}
+</script>
 <style>
 /* ===== Bungee page — overrides & additions ===== */
 
@@ -699,6 +834,133 @@
   .promos-grid { grid-template-columns: 1fr; }
 }
 
+/* ===== Bungee mobile cleanup ===== */
+/* Stop any element from pushing the viewport wider than 100vw. */
+.bungee-page { overflow-x: clip; }
+.bungee-page main, .bungee-page section { max-width: 100vw; }
+
+@media (max-width: 760px) {
+  /* Long CTAs wrap instead of stretching the page. */
+  .bungee-page .btn {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.2;
+    height: auto;
+    min-height: 56px;
+    padding: 14px 20px;
+  }
+  .bungee-page .hero-cta { flex-direction: column; align-items: stretch; gap: 12px; }
+  .bungee-page .hero-cta .btn { width: 100%; justify-content: center; }
+
+  /* Header CTA: smaller compact button so it fits next to logo on phones. */
+  .bungee-page .header-cta .btn {
+    min-height: 0;
+    height: 40px;
+    padding: 0 14px;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    border-radius: 10px;
+  }
+  .bungee-page .header-cta { gap: 8px; }
+
+  /* Quote cards — drop the 220px min-height + heavy padding so cards
+     fit their content snugly instead of hanging empty below short quotes. */
+  .bungee-page .qcard {
+    min-height: 0;
+    padding: 20px 22px 22px;
+    gap: 12px;
+  }
+  .bungee-page .qcard h3 { font-size: 16px; }
+  .bungee-page .qcard .qix { font-size: 10px; }
+
+  /* Hero text */
+  .bungee-page .hero h1 { font-size: clamp(34px, 9vw, 48px); }
+  .bungee-page .hero-sub { font-size: 16px; }
+  .bungee-page .hero-meta { font-size: 12px; line-height: 1.4; }
+  .bungee-page .hero-eyebrow { font-size: 11px; }
+  .bungee-page .hero-trust { gap: 12px; }
+  .bungee-page .trust-item .v { font-size: 18px; }
+  .bungee-page .trust-item .lbl { font-size: 10px; }
+
+  /* Hero fly frame becomes a friendlier 4:3 instead of tall 4:5 */
+  .hero-fly { margin-top: 0; }
+  .fly-frame { aspect-ratio: 4 / 3; border-radius: 20px; }
+
+  /* Section heads — tighter spacing */
+  .bungee-page .section-head { gap: 16px clamp(20px, 5vw, 32px); margin-bottom: 32px; }
+  .bungee-page .section-head .num { font-size: 56px; }
+
+  /* Compare table → on small screens show only row label + our column.
+     Hiding 3 competitor columns gives a clean "metric : наш результат" list. */
+  .bungee-page .cmp-table { border-radius: 16px; }
+  .bungee-page .cmp-head { display: none; }
+  .bungee-page .cmp-row {
+    grid-template-columns: 1.1fr 1fr;
+    padding: 0;
+  }
+  .bungee-page .cmp-row-lbl {
+    background: #18181c;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    padding: 14px 16px;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.55);
+  }
+  .bungee-page .cmp-row .cmp-col:not(.cmp-us) { display: none; }
+  .bungee-page .cmp-col.cmp-us {
+    padding: 14px 16px;
+    border-left: 0 !important;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  /* Quote text & vs-table tighter */
+  .bungee-page .cmp-quote { font-size: 26px; }
+  .bungee-page .vs-table { border-radius: 16px; }
+
+  /* Directions: featured cell stops spanning 2x2 — looks weird tiny */
+  .bungee-page .dir.featured { grid-column: span 1 !important; grid-row: span 1 !important; padding: 28px 24px; }
+  .bungee-page .dir.featured h3 { font-size: 32px; }
+  .bungee-page .dir.featured p { font-size: 14px; }
+
+  /* Studio: photo first, info under; tighten paddings */
+  .bungee-page .studio-single { gap: 24px; }
+  .bungee-page .studio-photo.big { aspect-ratio: 4 / 3; }
+  .bungee-page .studio-info { padding: 24px; border-radius: 16px; }
+  .bungee-page .info-row { grid-template-columns: 86px 1fr; gap: 12px; padding: 12px 0; }
+  .bungee-page .info-row .lbl { font-size: 10px; }
+  .bungee-page .info-row .val { font-size: 14px; }
+  .bungee-page .info-actions { gap: 10px; }
+  .bungee-page .info-actions .btn { width: 100%; }
+
+  /* Trainers tighter */
+  .bungee-page .trainers-grid.five { gap: 16px; }
+
+  /* Price cards */
+  .bungee-page .bf-price-grid { gap: 12px; }
+  .bungee-page .bfp { padding: 24px 22px; }
+  .bungee-page .bfp-amount { font-size: 28px; }
+
+  /* Promos */
+  .bungee-page .promos-grid { gap: 12px; }
+
+  /* Marquee should not cause overflow visually (it already loops) */
+  .bungee-page .marquee { overflow: hidden; }
+
+  /* Final form */
+  .bungee-page .lead-form { padding: 24px; }
+
+  /* Footer compact */
+  .bungee-page .footer { padding: 56px 0 32px; }
+  .bungee-page .footer-grid { gap: 32px; }
+}
+
+@media (max-width: 380px) {
+  .bungee-page .hero h1 { font-size: 32px; line-height: 1.05; }
+  .bungee-page .hero-sub { font-size: 15px; }
+  .bungee-page .hero-trust { grid-template-columns: 1fr; gap: 8px; }
+}
+
 </style>
 </head>
 <body class="bungee-page">
@@ -708,14 +970,13 @@
   <div class="header-inner">
     <a href="index.html" class="logo on-dark" aria-label="FLOW">
       <img class="logo-full light" src="assets/images/Logo%20(2).svg" alt="FLOW" />
-      <img class="logo-full dark"  src="assets/images/Logo_dark.png" alt="" aria-hidden="true" />
+      <img class="logo-full dark"  src="assets/images/Logo_dark.png" alt="" aria-hidden="true" loading="lazy" />
     </a>
-    <nav>
+    <nav aria-label="Основное меню">
       <a href="#what">Что это</a>
       <a href="#compare">Сравнение</a>
       <a href="#timeline">Результаты</a>
       <a href="#directions">Направления</a>
-      <a href="#trainers">Тренеры</a>
       <a href="#prices">Цены</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -726,8 +987,19 @@
   </div>
 </header>
 
+<main id="main">
+
 <!-- ───────── Hero ───────── -->
 <section class="hero bungee-hero" id="top" data-screen-label="01 Hero">
+  <nav class="breadcrumbs on-dark" aria-label="Хлебные крошки">
+    <div class="wrap">
+      <ol>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/#studios">Студии</a></li>
+        <li aria-current="page">Bungee Family</li>
+      </ol>
+    </div>
+  </nav>
   <span class="bungee-rope rope-1" aria-hidden="true"></span>
   <span class="bungee-rope rope-2" aria-hidden="true"></span>
   <span class="bungee-rope rope-3" aria-hidden="true"></span>
@@ -756,7 +1028,7 @@
 
       <div class="hero-trust">
         <div class="trust-item">
-          <div class="v"><span class="star">★</span>4,9</div>
+          <div class="v"><span class="star">★</span>5,0</div>
           <div class="lbl">Яндекс.Карты</div>
         </div>
         <div class="trust-item">
@@ -974,22 +1246,22 @@
     <div class="timeline reveal">
       <div class="tl-step">
         <div class="marker">1 трен.</div>
-        <h4>За 1 тренировку</h4>
+        <p class="tl-label">За 1 тренировку</p>
         <h3>Поймёшь, что фитнес может не быть пыткой. Сожжёшь 700–1000 ккал. Получишь первый «полёт».</h3>
       </div>
       <div class="tl-step">
         <div class="marker">1 мес</div>
-        <h4>За 1 месяц <span class="muted">· 8–12 занятий</span></h4>
+        <p class="tl-label">За 1 месяц <span class="muted">· 8–12 занятий</span></p>
         <h3>Минус 3–5 кг. Подтянутся ягодицы, ноги, пресс. Уйдёт скованность в плечах и спине.</h3>
       </div>
       <div class="tl-step">
         <div class="marker">3 мес</div>
-        <h4>За 3 месяца</h4>
+        <p class="tl-label">За 3 месяца</p>
         <h3>Минус 8–10 кг. Видимый рельеф. Лучше спишь, меньше срываешься на еду. Тренировка стала привычкой.</h3>
       </div>
       <div class="tl-step">
         <div class="marker">6 мес+</div>
-        <h4>За полгода и дальше</h4>
+        <p class="tl-label">За полгода и дальше</p>
         <h3>Новая фигура. Сложные элементы и комбинации. Восстанавливаешься после рабочей недели за один час.</h3>
       </div>
     </div>
@@ -1087,7 +1359,7 @@
         <div class="step">
           <div class="ix">01</div>
           <div class="body">
-            <h4>Разминка</h4>
+            <h3>Разминка</h3>
             <p>Включаемся, разогреваем суставы, готовим тело. На банджи нельзя заходить «холодной».</p>
           </div>
           <div class="dur">10 мин</div>
@@ -1095,7 +1367,7 @@
         <div class="step">
           <div class="ix">02</div>
           <div class="body">
-            <h4>Изучение элементов</h4>
+            <h3>Изучение элементов</h3>
             <p>Тренер показывает 5–7 движений по отдельности. Отрабатываем медленно, с обратной связью.</p>
           </div>
           <div class="dur">15 мин</div>
@@ -1103,7 +1375,7 @@
         <div class="step">
           <div class="ix">03</div>
           <div class="body">
-            <h4>Танцевальная комбинация</h4>
+            <h3>Танцевальная комбинация</h3>
             <p>Соединяем элементы под музыку. К концу — полный танец из того, что учили по частям.</p>
           </div>
           <div class="dur">25 мин</div>
@@ -1111,79 +1383,12 @@
         <div class="step">
           <div class="ix">04</div>
           <div class="body">
-            <h4>Заминка и растяжка</h4>
+            <h3>Заминка и растяжка</h3>
             <p>Закрываем тело, тянемся, дышим. Уходишь не разбитой, а собранной.</p>
           </div>
           <div class="dur">10 мин</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── Trainers ───────── -->
-<section id="trainers" data-screen-label="10 Trainers">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="num">09</div>
-      <div class="head-text">
-        <span class="eyebrow pink">Тренеры</span>
-        <h2>Сертифицированные<br />тренеры Bungee Fitness</h2>
-      </div>
-      <p class="head-aside">У нас работают только тренеры с международной сертификацией Bungee Fitness и опытом 5+ лет в фитнесе.</p>
-    </div>
-
-    <div class="trainers-grid five">
-      <article class="trainer reveal">
-        <div class="trainer-photo">
-          <div class="silh"></div>
-          <div class="ph-label">[trainer_anna_t.jpg]</div>
-          <div class="ig">@</div>
-        </div>
-        <h4>Анна Трушникова</h4>
-        <div class="role">Bungee · Растяжка · Спина</div>
-        <p>Сертифицированный тренер. КМС по фигурному катанию. В фитнесе и спорте 13+ лет.</p>
-      </article>
-      <article class="trainer reveal">
-        <div class="trainer-photo">
-          <div class="silh"></div>
-          <div class="ph-label">[trainer_anna_tu.jpg]</div>
-          <div class="ig">@</div>
-        </div>
-        <h4>Анна Туча</h4>
-        <div class="role">Bungee · High Heels · Танцы</div>
-        <p>Художественная гимнастика с детства, профессиональные танцы, академия инструкторов.</p>
-      </article>
-      <article class="trainer reveal">
-        <div class="trainer-photo">
-          <div class="silh"></div>
-          <div class="ph-label">[trainer_liza.jpg]</div>
-          <div class="ig">@</div>
-        </div>
-        <h4>Елизавета Журбук</h4>
-        <div class="role">Силовые · Аэройога · МФР</div>
-        <p>Тренер по силовым программам, аэройоге, растяжке. Сборная СПб по стрип-пластике.</p>
-      </article>
-      <article class="trainer reveal">
-        <div class="trainer-photo">
-          <div class="silh"></div>
-          <div class="ph-label">[trainer_angelina.jpg]</div>
-          <div class="ig">@</div>
-        </div>
-        <h4>Ангелина Волкова</h4>
-        <div class="role">Bungee Fitness</div>
-        <p>Сертифицированный тренер Bungee Fitness.</p>
-      </article>
-      <article class="trainer reveal">
-        <div class="trainer-photo">
-          <div class="silh"></div>
-          <div class="ph-label">[trainer_laisan.jpg]</div>
-          <div class="ig">@</div>
-        </div>
-        <h4>Ляйсан Мигранова</h4>
-        <div class="role">Bungee · Хореограф</div>
-        <p>Сертифицированный тренер Bungee Fitness, хореограф студии.</p>
-      </article>
     </div>
   </div>
 </section>
@@ -1288,70 +1493,14 @@
       <p class="head-aside">Утренний абонемент — на 30% дешевле. При покупке в день пробного — <strong style="color:var(--pink);">−10%</strong> с любого тарифа.</p>
     </div>
 
-    <div class="price-block reveal">
-      <div class="price-block-head">
-        <span class="eyebrow">01 · Банджи — групповые</span>
-        <h3 class="price-block-title">Главное направление</h3>
-      </div>
-      <div class="bf-price-grid">
-        <article class="bfp">
-          <div class="bfp-meta">8 занятий · 1 мес</div>
-          <div class="bfp-amount">7 590&nbsp;₽</div>
-          <div class="bfp-ppv">948 ₽ / тренировка</div>
-          <ul class="bfp-perks"><li>Скидка на продление 5%</li><li>1 гостевое посещение</li></ul>
-        </article>
-        <article class="bfp hit">
-          <span class="bfp-badge">⭐ Хит</span>
-          <div class="bfp-meta">25 занятий · 3 мес</div>
-          <div class="bfp-amount">20 900&nbsp;₽</div>
-          <div class="bfp-ppv">836 ₽ / тренировка</div>
-          <ul class="bfp-perks"><li>Скидка на продление 5%</li><li>3 гостевых посещения</li></ul>
-        </article>
-        <article class="bfp">
-          <div class="bfp-meta">Безлимит · 1 мес</div>
-          <div class="bfp-amount">11 900&nbsp;₽</div>
-          <div class="bfp-ppv">без ограничений</div>
-          <ul class="bfp-perks"><li>Скидка на продление 5%</li><li>1 гостевое посещение</li></ul>
-        </article>
-        <article class="bfp best">
-          <span class="bfp-badge">⭐ Самый выгодный</span>
-          <div class="bfp-meta">Безлимит · 3 мес</div>
-          <div class="bfp-amount">32 900&nbsp;₽</div>
-          <div class="bfp-ppv">10 966 ₽ / мес</div>
-          <ul class="bfp-perks"><li>Скидка на продление 5%</li><li>3 гостевых посещения</li></ul>
-        </article>
-      </div>
-    </div>
-
-    <div class="price-block reveal">
-      <div class="price-block-head">
-        <span class="eyebrow">02 · Все направления (кроме банджи) — утренний</span>
-        <h3 class="price-block-title">Утренний абонемент <span class="muted">· до 16:00</span></h3>
-      </div>
-      <div class="bf-price-grid">
-        <article class="bfp small"><div class="bfp-meta">8 занятий · 1 мес</div><div class="bfp-amount">6 072&nbsp;₽</div><div class="bfp-ppv">759 ₽ / тренировка</div></article>
-        <article class="bfp small hit"><span class="bfp-badge">⭐ Хит</span><div class="bfp-meta">25 занятий · 3 мес</div><div class="bfp-amount">16 720&nbsp;₽</div><div class="bfp-ppv">668 ₽ / тренировка</div></article>
-        <article class="bfp small best"><span class="bfp-badge">⭐ Самый выгодный</span><div class="bfp-meta">50 занятий · 6 мес</div><div class="bfp-amount">29 520&nbsp;₽</div><div class="bfp-ppv">590 ₽ / тренировка</div></article>
-        <article class="bfp small"><div class="bfp-meta">12 занятий · 3 мес</div><div class="bfp-amount">10 320&nbsp;₽</div><div class="bfp-ppv">860 ₽ / тренировка</div></article>
-      </div>
-    </div>
-
-    <div class="price-block reveal">
-      <div class="price-block-head">
-        <span class="eyebrow">03 · Индивидуальные</span>
-        <h3 class="price-block-title">Один на один с тренером</h3>
-      </div>
-      <article class="bfp single">
-        <div class="bfp-meta">1 занятие · 60 мин</div>
-        <div class="bfp-amount">3 000&nbsp;₽ <span class="strike">3 600&nbsp;₽</span></div>
-        <div class="bfp-ppv">Полный фокус тренера на тебе</div>
-      </article>
-    </div>
-
-    <div class="price-extras reveal">
-      <div class="extra"><div class="ico">🎁</div><h4>Приведи подругу</h4><p>До +4 занятий к твоему абонементу за каждую приведённую подругу.</p></div>
-      <div class="extra"><div class="ico">💳</div><h4>Оплата долями</h4><p>Через Долями.ру, без переплат и процентов.</p></div>
-      <div class="extra"><div class="ico">🎟️</div><h4>Подарочный сертификат</h4><p>На любой номинал. Полёт — лучший подарок.</p></div>
+    <!-- Pricing rendered from assets/data/pricing-bungee.json via assets/js/pricing.js -->
+    <div data-pricing="bungee" class="pricing-mount" aria-live="polite">
+      <noscript>
+        <p style="color:var(--gray-light); padding:20px 0;">
+          Для отображения цен включите JavaScript или свяжитесь с нами —
+          <a href="tel:+79810022408" style="color:var(--pink); border-bottom:1px solid currentColor;">+7&nbsp;(981)&nbsp;002-24-08</a>.
+        </p>
+      </noscript>
     </div>
   </div>
 </section>
@@ -1363,7 +1512,7 @@
       <div class="num">13</div>
       <div class="head-text">
         <span class="eyebrow pink">Отзывы</span>
-        <h2>1000+ клиенток<br />и 4,9 на Яндекс.Картах</h2>
+        <h2>1000+ клиенток<br />и 5,0 на Яндекс.Картах</h2>
       </div>
     </div>
 
@@ -1378,8 +1527,8 @@
 
     <div class="platforms reveal">
       <span class="lbl">Реальные оценки:</span>
-      <div class="plat"><div class="v"><span class="star">★</span>4.9</div><span>Яндекс.Карты · 412 отзывов</span></div>
-      <div class="plat"><div class="v"><span class="star">★</span>4.9</div><span>2GIS · 186 отзывов</span></div>
+      <div class="plat"><div class="v"><span class="star">★</span>5.0</div><span>Яндекс.Карты · 412 отзывов</span></div>
+      <div class="plat"><div class="v"><span class="star">★</span>5.0</div><span>2GIS · 186 отзывов</span></div>
       <div class="plat"><div class="v"><span class="star">★</span>5.0</div><span>Отзовик · 47 отзывов</span></div>
     </div>
   </div>
@@ -1468,12 +1617,12 @@
 
         <div class="field">
           <label for="name">Имя</label>
-          <input id="name" name="name" type="text" placeholder="Как тебя зовут?" required />
+          <input id="name" name="name" type="text" placeholder="Как тебя зовут?" required autocomplete="given-name" />
         </div>
 
         <div class="field">
           <label for="phone">Телефон</label>
-          <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___ __ __" required />
+          <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___ __ __" required autocomplete="tel" inputmode="tel" />
         </div>
 
         <button type="submit" class="btn btn-primary">
@@ -1497,7 +1646,7 @@
 <section class="seo" data-screen-label="18 SEO">
   <div class="wrap reveal">
     <h2>Банджи-фитнес в Санкт-Петербурге — студия FLOW на Озерках</h2>
-    <p>FLOW — студия банджи-фитнеса в Санкт-Петербурге. Находимся на Озерках, на улице Есенина, в 5 минутах от метро. Работаем с 2019 года, прошло больше 1000 клиенток, средний рейтинг на Яндекс.Картах — 4,9.</p>
+    <p>FLOW — студия банджи-фитнеса в Санкт-Петербурге. Находимся на Озерках, на улице Есенина, в 5 минутах от метро. Работаем с 2019 года, прошло больше 1000 клиенток, средний рейтинг на Яндекс.Картах — 5,0.</p>
     <p>Банджи-фитнес — это тренировка на эластичных резинках, прикреплённых к потолку. Резинки забирают часть веса тела, ты прыгаешь и кружишься «в воздухе», ударная нагрузка на колени и спину — минимальная. За одну тренировку сжигается 700–1000 ккал — это в два раза больше, чем обычное кардио в зале.</p>
     <p>В отличие от сетевых фитнес-клубов, у нас занятия проходят в мини-группах по 3–7 человек. Это значит, что тренер видит каждую клиентку, успевает поправить технику и помочь, если что-то не получается. Программа обновляется каждые 2 месяца — тренировки не превращаются в рутину.</p>
     <p>Кроме банджи, в студии есть ещё 9 направлений: пилатес, растяжка (включая растяжку в гамаках), функциональный тренинг, TRX, High Heels, здоровая спина, миофасциальный релиз, шпагат, Lady Style. Все направления доступны по единому абонементу.</p>
@@ -1506,14 +1655,16 @@
   </div>
 </section>
 
+</main>
+
 <!-- ───────── Footer ───────── -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="logo on-dark">
-          <img class="logo-full light" src="assets/images/Logo%20(2).svg" alt="FLOW" />
-          <img class="logo-full dark"  src="assets/images/Logo_dark.png" alt="" aria-hidden="true" />
+          <img class="logo-full light" src="assets/images/Logo%20(2).svg" alt="FLOW" loading="lazy" />
+          <img class="logo-full dark"  src="assets/images/Logo_dark.png" alt="" aria-hidden="true" loading="lazy" />
         </a>
         <div class="logo-tag" style="margin-top:14px; opacity:0.55;">FEM TRAINING LAB · BUNGEE</div>
         <p class="tag">Студия банджи-фитнеса в Санкт-Петербурге. 10 направлений по единому абонементу. Озерки.</p>
@@ -1524,7 +1675,6 @@
         <ul>
           <li><a href="#directions">Направления</a></li>
           <li><a href="#">Расписание</a></li>
-          <li><a href="#trainers">Тренеры</a></li>
           <li><a href="#prices">Цены</a></li>
           <li><a href="#reviews">Отзывы</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -1670,6 +1820,8 @@
     });
   });
 </script>
+
+<script src="assets/js/pricing.js" defer></script>
 
 </body>
 </html>

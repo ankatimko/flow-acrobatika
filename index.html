@@ -2,16 +2,167 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>FLOW Акробатика — Школа акробатики для взрослых в Санкт-Петербурге</title>
-<meta name="description" content="Акробатика, в которой сбывается мечта. Силовая, растяжка и драйв в одной тренировке. Уже на первом занятии ты сделаешь стойку на руках. Студии на Владимирской и в Мурино." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#242427" />
 
+<title>Акробатика для взрослых в СПб — школа FLOW | Стойка на руках на первом занятии</title>
+<meta name="description" content="Акробатика для взрослых женщин в Санкт-Петербурге. Уже на первом занятии — стойка на руках. Силовая, растяжка и драйв в одной тренировке. 8 лет работы, 500+ клиенток. Студии на Владимирской и в Мурино." />
+<meta name="keywords" content="акробатика для взрослых спб, школа акробатики, акробатика для начинающих, стойка на руках, акробатика владимирская, акробатика мурино" />
+<meta name="author" content="FLOW · Fem Training Lab" />
+
+<!-- TODO: confirm production URL before launch -->
+<link rel="canonical" href="https://flowtraining.ru/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="FLOW · Школа акробатики для взрослых" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="Акробатика для взрослых в СПб — школа FLOW" />
+<meta property="og:description" content="Акробатика для взрослых женщин в Санкт-Петербурге. Уже на первом занятии — стойка на руках. Студии на Владимирской и в Мурино." />
+<meta property="og:url" content="https://flowtraining.ru/" />
+<!-- TODO: create dedicated 1200×630 OG preview at assets/images/og-flow-acrobatics.jpg -->
+<meta property="og:image" content="https://flowtraining.ru/assets/images/og-flow-acrobatics.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="FLOW — школа акробатики для взрослых в Санкт-Петербурге" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Акробатика для взрослых в СПб — школа FLOW" />
+<meta name="twitter:description" content="Уже на первом занятии — стойка на руках. Студии на Владимирской и в Мурино." />
+<meta name="twitter:image" content="https://flowtraining.ru/assets/images/og-flow-acrobatics.jpg" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" href="assets/images/Sign.png" />
+<link rel="apple-touch-icon" href="assets/images/Sign.png" />
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- Critical assets preload (hero) -->
+<link rel="preload" as="image" href="assets/crescent-2.svg" />
+
+<!--
+  TODO (perf, offline): convert ./assets/images/*.{png,jpg} to WebP +
+  fallback via <picture><source type="image/webp"><img src="...jpg"></picture>.
+  Hero PNG (DSCF6439.png) is ~2 MB — best win is WebP for it and case photos.
+  TODO (perf, build step): extract critical CSS for first paint and inline
+  inside <style> before styles.css to remove render-blocking.
+-->
 <link rel="stylesheet" href="styles.css" />
-<link rel="icon" type="image/png" href="assets/images/Sign.png" />
-<link rel="apple-touch-icon" href="assets/images/Sign.png" />
+
+<!-- TODO: Yandex.Metrika counter — вставить тег от Я.Метрики сюда -->
+<!-- TODO: Google Analytics (gtag.js) — вставить тег GA сюда -->
+
+<!-- ───────── Schema.org / JSON-LD ───────── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://flowtraining.ru/#organization",
+      "name": "FLOW",
+      "alternateName": "FLOW Fem Training Lab",
+      "url": "https://flowtraining.ru/",
+      "logo": "https://flowtraining.ru/assets/images/Sign.png",
+      "image": "https://flowtraining.ru/assets/images/Sign.png",
+      "description": "Школа акробатики для взрослых женщин в Санкт-Петербурге. Часть сети FLOW.",
+      "sameAs": [
+        "https://www.instagram.com/flow.training.lab",
+        "https://t.me/flow_manager",
+        "https://vk.com/flowtrainingspace"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://flowtraining.ru/#website",
+      "url": "https://flowtraining.ru/",
+      "name": "FLOW · Школа акробатики для взрослых",
+      "inLanguage": "ru-RU",
+      "publisher": { "@id": "https://flowtraining.ru/#organization" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://flowtraining.ru/#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://flowtraining.ru/" },
+        { "@type": "ListItem", "position": 2, "name": "Направления", "item": "https://flowtraining.ru/#why" },
+        { "@type": "ListItem", "position": 3, "name": "Акробатика", "item": "https://flowtraining.ru/" }
+      ]
+    },
+    {
+      "@type": ["SportsActivityLocation", "HealthClub"],
+      "@id": "https://flowtraining.ru/#studio-vladimirskaya",
+      "name": "FLOW Training · студия акробатики на Владимирской",
+      "alternateName": "Flow Training",
+      "image": "https://flowtraining.ru/assets/images/владимирская.png",
+      "url": "https://flowtraining.ru/#studios",
+      "telephone": "+79522015247",
+      "email": "flowtraininglab@gmail.com",
+      "priceRange": "₽₽",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Владимирский проспект, 17к3",
+        "addressLocality": "Санкт-Петербург",
+        "addressCountry": "RU"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "247",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "parentOrganization": { "@id": "https://flowtraining.ru/#organization" }
+    },
+    {
+      "@type": ["SportsActivityLocation", "HealthClub"],
+      "@id": "https://flowtraining.ru/#studio-murino",
+      "name": "FLOW Relax · студия акробатики в Мурино",
+      "alternateName": "Flow Relax",
+      "url": "https://flowtraining.ru/#studios",
+      "telephone": "+79990635445",
+      "email": "flowtraininglab2@gmail.com",
+      "priceRange": "₽₽",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Мурино, Екатерининская, 22к1",
+        "addressLocality": "Санкт-Петербург",
+        "addressCountry": "RU"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "138",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "parentOrganization": { "@id": "https://flowtraining.ru/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://flowtraining.ru/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "Я никогда не занималась — точно получится?", "acceptedAnswer": { "@type": "Answer", "text": "Да. Группа BASE — это и есть «никогда не занималась». На пробном тренер подберёт уровень. Уже на первой тренировке ты сделаешь стойку на руках со страховкой — это стандарт первого занятия для всех новеньких." } },
+        { "@type": "Question", "name": "Мне 35 / 40 / 45 — не поздно?", "acceptedAnswer": { "@type": "Answer", "text": "Не поздно. Самой возрастной нашей клиентке 58. Методика разработана именно для взрослого тела — мы не «адаптируем детский подход», мы строим программу с нуля под биомеханику взрослого человека." } },
+        { "@type": "Question", "name": "Это безопасно? А если я упаду?", "acceptedAnswer": { "@type": "Answer", "text": "Каждый элемент идёт по схеме «подводящие → со страховкой → самостоятельно». Маты на всём пространстве. Тренеры обучены страховать. За 8 лет работы FLOW — ноль серьёзных травм." } },
+        { "@type": "Question", "name": "Что надеть на тренировку?", "acceptedAnswer": { "@type": "Answer", "text": "Облегающие лосины (свободные штаны мешают делать стойки) и топ или майка. Носки или босиком — на выбор. На первое занятие ничего специально покупать не надо, подойдёт обычная спортивная форма." } },
+        { "@type": "Question", "name": "Сколько стоит пробное и как записаться?", "acceptedAnswer": { "@type": "Answer", "text": "Пробное занятие — 600 ₽, длится 60 минут. Записаться можно через форму ниже, по телефону или в Telegram. Перезвоним за 15 минут в рабочее время и подберём удобный день." } },
+        { "@type": "Question", "name": "За сколько реально сесть на шпагат или научиться сальто?", "acceptedAnswer": { "@type": "Answer", "text": "Шпагат — у большинства за 3–6 месяцев при 2–3 тренировках в неделю. Сальто (с подготовкой и страховкой) — от 6 месяцев до года. Зависит от исходных данных и регулярности. Без давления и нереалистичных обещаний." } },
+        { "@type": "Question", "name": "Можно ли заниматься во время месячных, при больной спине или лишнем весе?", "acceptedAnswer": { "@type": "Answer", "text": "Да, во всех трёх случаях — но с адаптацией. Тренер скорректирует нагрузку. Если есть медицинские противопоказания или серьёзные проблемы со спиной — обязательно скажи на пробном, мы подберём щадящие элементы." } },
+        { "@type": "Question", "name": "Есть ли индивидуальные тренировки?", "acceptedAnswer": { "@type": "Answer", "text": "Да. Цена индивидуальной — от 3 500 ₽ за 60 минут с действующим абонементом. Можно совмещать с групповыми. Полезно, если ты хочешь добить конкретный элемент или работать с конкретной зажатой зоной." } },
+        { "@type": "Question", "name": "Можно ли заморозить абонемент?", "acceptedAnswer": { "@type": "Answer", "text": "Да. Месячный — на 7 дней, безлимит на 3 мес — на 14 дней, безлимит на 6 мес — на 21 день, годовой — на 30 дней. Заморозка бесплатная." } },
+        { "@type": "Question", "name": "Как добраться, есть ли парковка?", "acceptedAnswer": { "@type": "Answer", "text": "Студия на Владимирской — 5 минут от метро Владимирская/Достоевская, парковка платная во дворе. Студия в Мурино — 3 минуты от м. Девяткино, бесплатная парковка у ТЦ." } }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -20,13 +171,12 @@
   <div class="header-inner">
     <a href="#top" class="logo on-dark" aria-label="FLOW">
       <img class="logo-full light" src="assets/images/Logo%20(2).svg" alt="FLOW" />
-      <img class="logo-full dark"  src="assets/images/Logo_dark.png" alt="" aria-hidden="true" />
+      <img class="logo-full dark"  src="assets/images/Logo_dark.png" alt="" aria-hidden="true" loading="lazy" />
     </a>
-    <nav>
+    <nav aria-label="Основное меню">
       <a href="#why">Зачем</a>
       <a href="#cases">Кейсы</a>
       <a href="#levels">Уровни</a>
-      <a href="#trainers">Тренеры</a>
       <a href="#studios">Студии</a>
       <a href="#prices">Цены</a>
       <a href="#faq">FAQ</a>
@@ -38,11 +188,23 @@
   </div>
 </header>
 
+<main id="main">
+
 <!-- ───────── Hero ───────── -->
 <section class="hero" id="top" data-screen-label="01 Hero">
+  <nav class="breadcrumbs on-dark" aria-label="Хлебные крошки">
+    <div class="wrap">
+      <ol>
+        <li><a href="/">Главная</a></li>
+        <li><a href="#why">Направления</a></li>
+        <li aria-current="page">Акробатика</li>
+      </ol>
+    </div>
+  </nav>
   <div class="wrap hero-grid">
     <div>
       <span class="hero-eyebrow"><span class="dot"></span>FLOW · Акробатика для взрослых · СПб</span>
+      <a href="#process" class="btn btn-outline-light hero-cta-mobile">Как проходит занятие</a>
       <h1>
         Акробатика,<br />
         в которой <span class="grad-word">сбывается</span><br />
@@ -58,7 +220,7 @@
         </a>
         <a href="#process" class="btn btn-outline-light">Как проходит занятие</a>
       </div>
-      <p class="hero-meta">60 минут · Любой уровень · Владимирская / Мурино</p>
+      <p class="hero-meta">Любой уровень · Владимирская / Мурино</p>
 
       <div class="hero-trust">
         <div class="trust-item">
@@ -314,7 +476,7 @@
         <div class="case-body">
           <div class="case-meta"><span class="ix">06</span><span class="name" style="color:var(--pink);">Хочу так же</span></div>
           <h3 class="case-quote">Через&nbsp;месяц&nbsp;у тебя будет первый кадр, которым захочется поделиться.</h3>
-          <p class="case-body-text">Пробное — 60 минут с тренером, без обязательств и предоплат за абонемент. Подберём уровень, сделаем первую стойку.</p>
+          <p class="case-body-text">Пробное — 55 минут с тренером, без обязательств и предоплат за абонемент. Подберём уровень, сделаем первую стойку.</p>
           <a href="#final" class="btn btn-primary" style="align-self:flex-start; margin-top: 6px;">
             Записаться на пробное
             <svg class="arrow" viewBox="0 0 14 10" fill="none"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -378,22 +540,22 @@
     <div class="timeline reveal">
       <div class="tl-step">
         <div class="marker">1 трен.</div>
-        <h4>За 1 тренировку</h4>
+        <p class="tl-label">За 1 тренировку</p>
         <h3>Стойка на руках со страховкой и ощущение «а что, так можно было?»</h3>
       </div>
       <div class="tl-step">
         <div class="marker">1 мес</div>
-        <h4>За 1 месяц</h4>
+        <p class="tl-label">За 1 месяц</p>
         <h3>Чистая стойка, мостик, колесо. Подкаченные пресс/спина. Первое видео, которое хочется выложить.</h3>
       </div>
       <div class="tl-step">
         <div class="marker">6 мес</div>
-        <h4>За полгода</h4>
+        <p class="tl-label">За полгода</p>
         <h3>Рондат, фляк, перевороты, шпагаты. Рельефное тело без «через не хочу».</h3>
       </div>
       <div class="tl-step">
         <div class="marker">1 год</div>
-        <h4>За год</h4>
+        <p class="tl-label">За год</p>
         <h3>Сальто, акробатические связки, тело, которое слушается, и новый уровень отношений с собой.</h3>
       </div>
     </div>
@@ -456,14 +618,14 @@
       <div class="num">07</div>
       <div class="head-text">
         <span class="eyebrow pink">Как проходит тренировка</span>
-        <h2>60 минут, в которые<br />ты влюбишься</h2>
+        <h2>Час, в который<br />ты влюбишься</h2>
       </div>
     </div>
 
     <div class="process-wrap">
       <div class="process-left reveal">
-        <div class="timer"><span class="grad">60</span></div>
-        <div class="timer-lbl">минут одной тренировки</div>
+        <div class="timer"><span class="grad">×3</span></div>
+        <div class="timer-lbl">тренировки в&nbsp;одной:<br />сила, гибкость, драйв</div>
         <div class="footnote">
           <strong>Группы до 8 человек.</strong> У тренера есть время на каждую. Атмосфера женского комьюнити — без оценок и&nbsp;конкуренции.
         </div>
@@ -472,7 +634,7 @@
         <div class="step">
           <div class="ix">01</div>
           <div class="body">
-            <h4>Разминка</h4>
+            <h3>Разминка</h3>
             <p>Мягкий разогрев, подготовка суставов, дыхание.</p>
           </div>
           <div class="dur">10 мин</div>
@@ -480,7 +642,7 @@
         <div class="step">
           <div class="ix">02</div>
           <div class="body">
-            <h4>Подводящие упражнения</h4>
+            <h3>Подводящие упражнения</h3>
             <p>Техника элемента, который учим сегодня. Разбираем механику движения.</p>
           </div>
           <div class="dur">15 мин</div>
@@ -488,7 +650,7 @@
         <div class="step">
           <div class="ix">03</div>
           <div class="body">
-            <h4>Основная часть</h4>
+            <h3>Основная часть</h3>
             <p>Выполнение элементов, страховка тренера, отработка. Делаешь столько раз, сколько нужно — никакой гонки.</p>
           </div>
           <div class="dur">25 мин</div>
@@ -496,73 +658,12 @@
         <div class="step">
           <div class="ix">04</div>
           <div class="body">
-            <h4>Заминка и растяжка</h4>
+            <h3>Заминка и растяжка</h3>
             <p>Закрываем тело, расслабляемся. Шпагат сюда часто и приходит — не на разминке.</p>
           </div>
           <div class="dur">10 мин</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ───────── Trainers ───────── -->
-<section style="background: var(--bg-tone);" id="trainers" data-screen-label="09 Trainers">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="num">08</div>
-      <div class="head-text">
-        <span class="eyebrow pink">Тренеры</span>
-        <h2>Тренеры, которые умеют<br />работать со взрослыми</h2>
-      </div>
-    </div>
-
-    <div class="trainers-grid">
-      <article class="trainer reveal">
-        <div class="trainer-photo">
-          <div class="silh"></div>
-          <div class="ph-label">[trainer_01.jpg]</div>
-          <div class="ig">@</div>
-        </div>
-        <h4>Янна Максимова</h4>
-        <div class="role">Основатель · 14 лет опыта</div>
-        <p>МСМК по спортивной акробатике. Автор методики работы со взрослым телом FLOW.</p>
-      </article>
-      <article class="trainer reveal">
-        <div class="trainer-photo">
-          <div class="silh"></div>
-          <div class="ph-label">[trainer_02.jpg]</div>
-          <div class="ig">@</div>
-        </div>
-        <h4>Катя Соколова</h4>
-        <div class="role">BASE · BALANCE</div>
-        <p>Специализация — старт с нуля. «Мама группы» — у неё расслабляются даже самые зажатые.</p>
-      </article>
-      <article class="trainer reveal">
-        <div class="trainer-photo">
-          <div class="silh"></div>
-          <div class="ph-label">[trainer_03.jpg]</div>
-          <div class="ig">@</div>
-        </div>
-        <h4>Маша Левина</h4>
-        <div class="role">JUMP · PRO</div>
-        <p>КМС, профильная подготовка по сложным элементам. Учит не бояться скорости.</p>
-      </article>
-      <article class="trainer reveal">
-        <div class="trainer-photo">
-          <div class="silh"></div>
-          <div class="ph-label">[trainer_04.jpg]</div>
-          <div class="ig">@</div>
-        </div>
-        <h4>Настя Орлова</h4>
-        <div class="role">MIDDLE · растяжка</div>
-        <p>Шпагат через расслабление. Дыхательные техники, работа с зажимами.</p>
-      </article>
-    </div>
-
-    <div class="trainers-note reveal">
-      <p>Все тренеры FLOW прошли <strong>внутреннюю методику работы со взрослым телом</strong>. Не «бывшие гимнастки, которые повторяют детский подход», — а специалисты, которые понимают, как учить женщину 30+ без травм.</p>
-      <a href="#final" class="btn btn-outline">Записаться к тренеру</a>
     </div>
   </div>
 </section>
@@ -689,82 +790,14 @@
       </div>
     </div>
 
-    <div class="price-grid">
-      <article class="price price-trial reveal">
-        <span class="lbl">Старт</span>
-        <h3>Пробное<br />занятие</h3>
-        <p>60 минут с тренером. Подбор уровня, первая стойка, ощущение «а что, так можно было». Без обязательств.</p>
-        <a href="#final" class="btn btn-primary">
-          Записаться · 600 ₽
-          <svg class="arrow" viewBox="0 0 14 10" fill="none"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </article>
-
-      <article class="price reveal">
-        <div class="name">8 занятий / 30 дней</div>
-        <div class="amount">7 990 ₽</div>
-        <div class="meta">≈ 2 раза в неделю</div>
-        <div class="ppv">999 ₽ / занятие</div>
-      </article>
-
-      <article class="price best reveal">
-        <div class="name">12 занятий / 30 дней</div>
-        <div class="amount">10 590 ₽</div>
-        <div class="meta">≈ 3 раза в неделю</div>
-        <div class="ppv">883 ₽ / занятие</div>
-      </article>
-
-      <article class="price reveal">
-        <div class="name">Безлимит / месяц</div>
-        <div class="amount">12 900 ₽</div>
-        <div class="meta">все направления FLOW</div>
-        <div class="ppv">любые форматы</div>
-      </article>
-
-      <div class="row2">
-        <article class="price reveal">
-          <div class="name">Безлимит / 3 мес</div>
-          <div class="amount">32 900 ₽</div>
-          <div class="meta">−15% к месячному</div>
-          <div class="ppv">10 967 ₽ / мес</div>
-        </article>
-        <article class="price reveal">
-          <div class="name">Безлимит / 6 мес</div>
-          <div class="amount">59 900 ₽</div>
-          <div class="meta">−23% к месячному</div>
-          <div class="ppv">9 983 ₽ / мес</div>
-        </article>
-        <article class="price reveal">
-          <div class="name">Безлимит / год</div>
-          <div class="amount">99 990 ₽</div>
-          <div class="meta">−35% к месячному</div>
-          <div class="ppv">8 333 ₽ / мес</div>
-        </article>
-        <article class="price reveal">
-          <div class="name">Утренний абонемент</div>
-          <div class="amount">−20%</div>
-          <div class="meta">10:00–16:00</div>
-          <div class="ppv">к любому тарифу</div>
-        </article>
-      </div>
-    </div>
-
-    <div class="price-extras reveal">
-      <div class="extra">
-        <div class="ico">∞</div>
-        <h4>Все направления FLOW</h4>
-        <p>Один абонемент — акробатика, растяжка, фитнес, танцы, йога. Без доплат.</p>
-      </div>
-      <div class="extra">
-        <div class="ico">❄</div>
-        <h4>Заморозка и подруга</h4>
-        <p>Бонусная заморозка абонемента и гостевые визиты для подруги.</p>
-      </div>
-      <div class="extra">
-        <div class="ico">+500</div>
-        <h4>Бонусы за приложение</h4>
-        <p>500 бонусов за регистрацию в приложении FLOW. App Store · Google Play · RuStore.</p>
-      </div>
+    <!-- Pricing rendered from assets/data/pricing-flow.json via assets/js/pricing.js -->
+    <div data-pricing="flow" class="pricing-mount" aria-live="polite">
+      <noscript>
+        <p style="color:rgba(255,255,255,0.7); padding:20px 0;">
+          Для отображения цен включите JavaScript или свяжитесь с нами —
+          <a href="tel:+79522015247" style="color:var(--pink); border-bottom:1px solid currentColor;">+7&nbsp;(952)&nbsp;201&nbsp;52&nbsp;47</a>.
+        </p>
+      </noscript>
     </div>
   </div>
 </section>
@@ -857,6 +890,38 @@
   </div>
 </section>
 
+<!-- ───────── Client videos ───────── -->
+<section class="videos-sec" id="client-videos" data-screen-label="12B Videos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num">12</div>
+      <div class="head-text">
+        <span class="eyebrow pink">Видео клиенток</span>
+        <h2>Реальные элементы<br />наших девушек</h2>
+      </div>
+      <p class="head-aside">Тренировочные моменты и финальные элементы — снимали сами на занятиях. Тапни на видео, чтобы посмотреть со звуком.</p>
+    </div>
+  </div>
+
+  <div class="video-wall-wrap reveal">
+    <div class="video-wall" data-video-wall>
+      <article class="video-card"><video preload="metadata" muted loop playsinline aria-label="Тренировка клиентки FLOW — 1"><source src="assets/images/video_acro_user/IMG_4500.MP4" type="video/mp4" /></video><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></article>
+      <article class="video-card"><video preload="metadata" muted loop playsinline aria-label="Тренировка клиентки FLOW — 2"><source src="assets/images/video_acro_user/IMG_1932.MOV" type="video/mp4" /></video><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></article>
+      <article class="video-card"><video preload="metadata" muted loop playsinline aria-label="Тренировка клиентки FLOW — 3"><source src="assets/images/video_acro_user/IMG_8909.MP4" type="video/mp4" /></video><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></article>
+      <article class="video-card"><video preload="metadata" muted loop playsinline aria-label="Тренировка клиентки FLOW — 4"><source src="assets/images/video_acro_user/IMG_3300.MP4" type="video/mp4" /></video><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></article>
+      <article class="video-card"><video preload="metadata" muted loop playsinline aria-label="Тренировка клиентки FLOW — 5"><source src="assets/images/video_acro_user/IMG_3301.MP4" type="video/mp4" /></video><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></article>
+      <article class="video-card"><video preload="metadata" muted loop playsinline aria-label="Тренировка клиентки FLOW — 6"><source src="assets/images/video_acro_user/IMG_8912.MP4" type="video/mp4" /></video><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></article>
+      <article class="video-card"><video preload="metadata" muted loop playsinline aria-label="Тренировка клиентки FLOW — 7"><source src="assets/images/video_acro_user/IMG_6837.MOV" type="video/mp4" /></video><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></article>
+      <article class="video-card"><video preload="metadata" muted loop playsinline aria-label="Тренировка клиентки FLOW — 8"><source src="assets/images/video_acro_user/IMG_3789.MOV" type="video/mp4" /></video><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></article>
+      <article class="video-card"><video preload="metadata" muted loop playsinline aria-label="Тренировка клиентки FLOW — 9"><source src="assets/images/video_acro_user/IMG_1558.MOV" type="video/mp4" /></video><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></article>
+      <article class="video-card"><video preload="metadata" muted loop playsinline aria-label="Тренировка клиентки FLOW — 10"><source src="assets/images/video_acro_user/IMG_1559.MOV" type="video/mp4" /></video><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></article>
+      <article class="video-card"><video preload="metadata" muted loop playsinline aria-label="Тренировка клиентки FLOW — 11"><source src="assets/images/video_acro_user/IMG_9611.MP4" type="video/mp4" /></video><span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></article>
+    </div>
+    <button type="button" class="vw-nav vw-prev" data-video-prev aria-label="Предыдущее видео"><svg viewBox="0 0 14 14" fill="none"><path d="M9 2 4 7l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button type="button" class="vw-nav vw-next" data-video-next aria-label="Следующее видео"><svg viewBox="0 0 14 14" fill="none"><path d="m5 2 5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+</section>
+
 <!-- ───────── FAQ ───────── -->
 <section style="background: var(--bg-tone);" id="faq" data-screen-label="13 FAQ">
   <div class="wrap">
@@ -934,12 +999,12 @@
 
         <div class="field">
           <label for="name">Имя</label>
-          <input id="name" name="name" type="text" placeholder="Как тебя зовут?" required />
+          <input id="name" name="name" type="text" placeholder="Как тебя зовут?" required autocomplete="given-name" />
         </div>
 
         <div class="field">
           <label for="phone">Телефон</label>
-          <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___ __ __" required />
+          <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___ __ __" required autocomplete="tel" inputmode="tel" />
         </div>
 
         <div class="field">
@@ -978,13 +1043,15 @@
   </div>
 </section>
 
+</main>
+
 <!-- ───────── Footer ───────── -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#top" class="logo on-dark">
-          <img class="logo-full" src="assets/images/Logo%20(2).svg" alt="FLOW" />
+          <img class="logo-full" src="assets/images/Logo%20(2).svg" alt="FLOW" loading="lazy" />
         </a>
         <div class="logo-tag" style="margin-top:14px; opacity:0.55;">FEM TRAINING LAB</div>
         <p class="tag">Тренировочное пространство для женщин в Санкт-Петербурге. Акробатика, растяжка, танцы, йога, фитнес.</p>
@@ -1116,6 +1183,62 @@
     slider.addEventListener('pointercancel', () => { startX = null; });
   });
 
+  // Client-videos horizontal scroller: prev/next + drag-to-scroll + tap-to-play
+  document.querySelectorAll('[data-video-wall]').forEach(wall => {
+    const wrap = wall.closest('.video-wall-wrap') || wall.parentElement;
+    const prev = wrap.querySelector('[data-video-prev]');
+    const next = wrap.querySelector('[data-video-next]');
+    const step = () => {
+      const card = wall.querySelector('.video-card');
+      return card ? card.getBoundingClientRect().width + 18 : 280;
+    };
+    prev && prev.addEventListener('click', () => wall.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next && next.addEventListener('click', () => wall.scrollBy({ left:  step(), behavior: 'smooth' }));
+
+    // Mouse drag-to-scroll (touch already pans natively)
+    let down = false, startX = 0, startScroll = 0, moved = 0;
+    wall.addEventListener('pointerdown', e => {
+      if (e.pointerType !== 'mouse') return;
+      down = true;
+      startX = e.clientX;
+      startScroll = wall.scrollLeft;
+      moved = 0;
+      wall.classList.add('dragging');
+      wall.setPointerCapture && wall.setPointerCapture(e.pointerId);
+    });
+    wall.addEventListener('pointermove', e => {
+      if (!down) return;
+      const dx = e.clientX - startX;
+      moved = Math.max(moved, Math.abs(dx));
+      wall.scrollLeft = startScroll - dx;
+    });
+    const stop = () => { down = false; wall.classList.remove('dragging'); };
+    wall.addEventListener('pointerup', stop);
+    wall.addEventListener('pointercancel', stop);
+    wall.addEventListener('pointerleave', stop);
+    // Swallow the click that follows a drag so it doesn't toggle playback
+    wall.addEventListener('click', e => {
+      if (moved > 8) { e.preventDefault(); e.stopPropagation(); moved = 0; }
+    }, true);
+  });
+  document.querySelectorAll('.video-card').forEach(card => {
+    const v = card.querySelector('video');
+    if (!v) return;
+    card.addEventListener('click', () => {
+      if (v.paused) {
+        document.querySelectorAll('.video-card video').forEach(other => { if (other !== v) { other.pause(); other.muted = true; } });
+        document.querySelectorAll('.video-card.playing').forEach(c => c.classList.remove('playing'));
+        v.muted = false;
+        v.play().catch(() => { v.muted = true; v.play(); });
+      } else {
+        v.pause();
+      }
+    });
+    v.addEventListener('play',  () => card.classList.add('playing'));
+    v.addEventListener('pause', () => card.classList.remove('playing'));
+    v.addEventListener('ended', () => card.classList.remove('playing'));
+  });
+
   // Phone mask
   const phoneInput = document.getElementById('phone');
   if (phoneInput) {
@@ -1160,6 +1283,8 @@
     });
   });
 </script>
+
+<script src="assets/js/pricing.js" defer></script>
 
 </body>
 </html>

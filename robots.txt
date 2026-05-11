@@ -1,0 +1,13 @@
+# TODO: confirm production domain before launch
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.claude/
+
+# Block legal pages from indexing (no SEO value, deep-linked from footer)
+Disallow: /oferta.html
+Disallow: /politika.html
+
+# Sitemap
+Sitemap: https://flowtraining.ru/sitemap.xml

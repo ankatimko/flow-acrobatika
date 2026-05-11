@@ -23,6 +23,8 @@ const types = {
   '.mp4':  'video/mp4',
   '.mov':  'video/quicktime',
   '.webm': 'video/webm',
+  '.xml':  'application/xml; charset=utf-8',
+  '.txt':  'text/plain; charset=utf-8',
 };
 
 createServer(async (req, res) => {
