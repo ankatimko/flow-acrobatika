@@ -594,7 +594,24 @@
     <div class="studios-grid">
       <article class="studio reveal">
         <div class="studio-photo has-photo">
-          <img src="assets/images/владимирская.png" alt="Зал студии FLOW Владимирская — широкий зал с матами и зеркалами" loading="lazy" />
+          <div class="slider" data-slider aria-roledescription="Галерея фото студии Flow Training">
+            <div class="slider-track">
+              <img src="assets/images/vlad/photo_1_2026-05-11_11-30-19.jpg" alt="Студия Flow Training — фото 1" loading="lazy" />
+              <img src="assets/images/vlad/photo_2_2026-05-11_11-30-19.jpg" alt="Студия Flow Training — фото 2" loading="lazy" />
+              <img src="assets/images/vlad/photo_3_2026-05-11_11-30-19.jpg" alt="Студия Flow Training — фото 3" loading="lazy" />
+              <img src="assets/images/vlad/photo_4_2026-05-11_11-30-19.jpg" alt="Студия Flow Training — фото 4" loading="lazy" />
+              <img src="assets/images/vlad/photo_5_2026-05-11_11-30-19.jpg" alt="Студия Flow Training — фото 5" loading="lazy" />
+              <img src="assets/images/vlad/photo_6_2026-05-11_11-30-19.jpg" alt="Студия Flow Training — фото 6" loading="lazy" />
+              <img src="assets/images/vlad/photo_7_2026-05-11_11-30-19.jpg" alt="Студия Flow Training — фото 7" loading="lazy" />
+              <img src="assets/images/vlad/photo_8_2026-05-11_11-30-19.jpg" alt="Студия Flow Training — фото 8" loading="lazy" />
+              <img src="assets/images/vlad/photo_9_2026-05-11_11-30-19.jpg" alt="Студия Flow Training — фото 9" loading="lazy" />
+            </div>
+            <button type="button" class="slider-nav prev" aria-label="Предыдущее фото"><svg viewBox="0 0 14 14" aria-hidden="true" fill="none"><path d="M9 2 4 7l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="slider-nav next" aria-label="Следующее фото"><svg viewBox="0 0 14 14" aria-hidden="true" fill="none"><path d="m5 2 5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="slider-dots" aria-hidden="true">
+              <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
           <div class="pin">FLOW</div>
         </div>
         <div class="studio-body">
@@ -624,9 +641,26 @@
       </article>
 
       <article class="studio reveal">
-        <div class="studio-photo">
+        <div class="studio-photo has-photo">
+          <div class="slider" data-slider aria-roledescription="Галерея фото студии Flow Relax">
+            <div class="slider-track">
+              <img src="assets/images/murino/photo_1_2026-05-11_11-29-26.jpg" alt="Студия Flow Relax — фото 1" loading="lazy" />
+              <img src="assets/images/murino/photo_2_2026-05-11_11-29-26.jpg" alt="Студия Flow Relax — фото 2" loading="lazy" />
+              <img src="assets/images/murino/photo_3_2026-05-11_11-29-26.jpg" alt="Студия Flow Relax — фото 3" loading="lazy" />
+              <img src="assets/images/murino/photo_4_2026-05-11_11-29-26.jpg" alt="Студия Flow Relax — фото 4" loading="lazy" />
+              <img src="assets/images/murino/photo_5_2026-05-11_11-29-26.jpg" alt="Студия Flow Relax — фото 5" loading="lazy" />
+              <img src="assets/images/murino/photo_6_2026-05-11_11-29-26.jpg" alt="Студия Flow Relax — фото 6" loading="lazy" />
+              <img src="assets/images/murino/photo_7_2026-05-11_11-29-26.jpg" alt="Студия Flow Relax — фото 7" loading="lazy" />
+              <img src="assets/images/murino/photo_8_2026-05-11_11-29-26.jpg" alt="Студия Flow Relax — фото 8" loading="lazy" />
+              <img src="assets/images/murino/photo_9_2026-05-11_11-29-26.jpg" alt="Студия Flow Relax — фото 9" loading="lazy" />
+            </div>
+            <button type="button" class="slider-nav prev" aria-label="Предыдущее фото"><svg viewBox="0 0 14 14" aria-hidden="true" fill="none"><path d="M9 2 4 7l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="slider-nav next" aria-label="Следующее фото"><svg viewBox="0 0 14 14" aria-hidden="true" fill="none"><path d="m5 2 5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="slider-dots" aria-hidden="true">
+              <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
           <div class="pin">FLOW</div>
-          <div class="ph-label">[studio_murino.jpg · светлый зал, окна во всю стену]</div>
         </div>
         <div class="studio-body">
           <h3>Flow Relax</h3>
@@ -1067,6 +1101,34 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Studio photo sliders
+  document.querySelectorAll('[data-slider]').forEach(slider => {
+    const track = slider.querySelector('.slider-track');
+    const slides = track.children;
+    const count = slides.length;
+    if (count < 2) return;
+    const dots = slider.querySelectorAll('.slider-dots .dot');
+    let idx = 0;
+    const go = n => {
+      idx = (n + count) % count;
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    };
+    slider.querySelector('.prev').addEventListener('click', () => go(idx - 1));
+    slider.querySelector('.next').addEventListener('click', () => go(idx + 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+    // touch / pointer swipe
+    let startX = null;
+    slider.addEventListener('pointerdown', e => { startX = e.clientX; });
+    slider.addEventListener('pointerup', e => {
+      if (startX == null) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+    slider.addEventListener('pointercancel', () => { startX = null; });
+  });
 
   // Phone mask
   const phoneInput = document.getElementById('phone');
