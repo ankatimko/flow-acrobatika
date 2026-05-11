@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Банджи-фитнес в СПб — студия FLOW на Озерках | Пробное за 1 000 ₽</title>
+<meta name="description" content="Банджи-фитнес в Санкт-Петербурге. Минус 5 кг за месяц без боли в мышцах. Мини-группы 3–7 человек, 10 направлений по единому абонементу. Пробное за 1 000 ₽. Метро Озерки." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" type="image/png" href="assets/images/Sign.png" />
+<link rel="apple-touch-icon" href="assets/images/Sign.png" />
+<style>
+/* ===== Bungee page — overrides & additions ===== */
+
+/* Fix: section-head with 3rd-child .head-aside should use a 3-col grid
+   so the aside doesn't force column 1 wider than the wrap. */
+.section-head:has(.head-aside) {
+  grid-template-columns: auto 1fr minmax(0, 360px);
+  align-items: end;
+  gap: clamp(24px, 4vw, 56px);
+}
+.section-head .head-aside {
+  max-width: 360px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--gray-light);
+  margin: 0;
+}
+@media (max-width: 1000px) {
+  .section-head:has(.head-aside) {
+    grid-template-columns: auto 1fr;
+  }
+  .section-head .head-aside {
+    grid-column: 1 / -1;
+    max-width: 640px;
+  }
+}
+
+/* Fix: header nav was overflowing under ~1100px — tighten + raise breakpoint */
+.header nav { gap: clamp(14px, 1.6vw, 24px); }
+.header nav a { white-space: nowrap; font-size: 13px; }
+@media (max-width: 1180px) {
+  .header nav { display: none; }
+}
+
+/* Hero — bungee ropes hanging from the top */
+.bungee-hero { position: relative; overflow: hidden; }
+.bungee-rope {
+  position: absolute;
+  top: -10px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(255,60,223,0.0) 0%, rgba(255,60,223,0.55) 8%, rgba(0,20,255,0.55) 80%, rgba(0,20,255,0.0) 100%);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 1;
+  transform-origin: top center;
+  animation: ropeSway 6s ease-in-out infinite;
+}
+.bungee-rope.rope-1 { left: 18%; height: 62%; animation-delay: 0s; }
+.bungee-rope.rope-2 { left: 38%; height: 78%; animation-delay: -2s; opacity: 0.7; }
+.bungee-rope.rope-3 { right: 8%;  height: 70%; animation-delay: -4s; opacity: 0.9; }
+@keyframes ropeSway {
+  0%, 100% { transform: rotate(-1.2deg); }
+  50% { transform: rotate(1.2deg); }
+}
+
+/* Hero "fly" visual — silhouette suspended on 2 ropes */
+.hero-fly { position: relative; z-index: 2; align-self: start; margin-top: 30px; }
+@media (max-width: 900px) {
+  .hero-fly { align-self: auto; margin-top: 0; }
+}
+.fly-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 28px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255,60,223,0.32), transparent 55%),
+    radial-gradient(circle at 75% 80%, rgba(0,20,255,0.4), transparent 55%),
+    #0e0e11;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+.fly-frame::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  opacity: 0.55;
+}
+.fly-rope {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 38%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,60,223,0.55) 100%);
+  border-radius: 2px;
+  z-index: 3;
+  transform-origin: top center;
+  animation: rope2 5s ease-in-out infinite;
+}
+.fly-rope.rope-l { left: 36%; animation-delay: -1s; }
+.fly-rope.rope-r { right: 36%; animation-delay: -2.5s; }
+@keyframes rope2 {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+.fly-silh {
+  position: absolute;
+  top: 36%; left: 50%;
+  width: 56%; aspect-ratio: 1 / 1.55;
+  transform: translate(-50%, 0);
+  background: var(--grad);
+  -webkit-mask: url("assets/silh-jump.svg") center/contain no-repeat;
+  mask: url("assets/silh-jump.svg") center/contain no-repeat;
+  -webkit-mask-mode: alpha; mask-mode: alpha;
+  filter: drop-shadow(0 24px 36px rgba(255,60,223,0.35));
+  animation: flyBob 5s ease-in-out infinite;
+  z-index: 4;
+}
+@keyframes flyBob {
+  0%, 100% { transform: translate(-50%, 0) rotate(-3deg); }
+  50% { transform: translate(-50%, -10px) rotate(3deg); }
+}
+.fly-tag {
+  position: absolute;
+  top: 18px; left: 18px;
+  font-family: var(--kod);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  z-index: 5;
+}
+.fly-cal {
+  position: absolute;
+  bottom: 22px; left: 22px;
+  z-index: 5;
+  display: flex; flex-direction: column; gap: 4px;
+  align-items: flex-start;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(8px);
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.fly-cal .grad {
+  font-family: var(--kod);
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 500;
+  background: var(--grad);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.fly-cal .cal-lbl {
+  font-family: var(--kod);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+.fly-frame .ph-label {
+  position: absolute;
+  bottom: 14px; right: 14px;
+  z-index: 5;
+  font-family: ui-monospace, 'SF Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.04em;
+}
+
+/* Head aside (used in several sections) — on dark version */
+.head-aside.on-dark { color: rgba(255,255,255,0.55); }
+
+/* ===== Compare table ===== */
+.cmp-table {
+  display: grid;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  background: #141417;
+}
+.cmp-head, .cmp-row {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  align-items: center;
+}
+.cmp-head { border-bottom: 1px solid rgba(255,255,255,0.1); background: #18181c; }
+.cmp-row { border-top: 1px solid rgba(255,255,255,0.05); }
+.cmp-row-lbl, .cmp-col {
+  padding: 18px 20px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+.cmp-head .cmp-col, .cmp-head .cmp-row-lbl {
+  font-family: var(--kod);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.55);
+  padding-top: 22px; padding-bottom: 22px;
+}
+.cmp-row-lbl {
+  font-family: var(--kod);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.5);
+  background: #18181c;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+.cmp-col { color: rgba(255,255,255,0.7); }
+.cmp-col + .cmp-col { border-left: 1px solid rgba(255,255,255,0.04); }
+.cmp-us {
+  background: linear-gradient(180deg, rgba(255,60,223,0.1), rgba(0,20,255,0.08));
+  color: #fff;
+  border-left: 1px solid rgba(255,60,223,0.3) !important;
+  position: relative;
+}
+.cmp-us b { color: #fff; font-weight: 500; }
+.cmp-brand {
+  background: var(--grad);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+}
+@media (max-width: 900px) {
+  .cmp-head, .cmp-row { grid-template-columns: 1.2fr 1fr 1fr; }
+  .cmp-head .cmp-col:nth-child(2),
+  .cmp-head .cmp-col:nth-child(3),
+  .cmp-row .cmp-col:nth-child(2),
+  .cmp-row .cmp-col:nth-child(3) { display: none; }
+}
+
+.cmp-quote {
+  font-family: var(--kod);
+  text-align: center;
+  font-size: clamp(28px, 3.4vw, 48px);
+  line-height: 1.1;
+  font-weight: 400;
+  margin-top: clamp(48px, 6vw, 80px);
+  color: #fff;
+  text-wrap: balance;
+}
+.cmp-quote .open-q, .cmp-quote .close-q {
+  font-family: var(--kod);
+  background: var(--grad);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.4em;
+}
+.cmp-quote-sub {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ===== Quotes 8x grid ===== */
+.quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 24px;
+  overflow: hidden;
+}
+.qcard {
+  background: #fff;
+  padding: 32px 28px 36px;
+  display: flex; flex-direction: column; gap: 24px;
+  min-height: 220px;
+  transition: background .3s ease;
+  position: relative;
+}
+.qcard:hover { background: var(--bg-tone); }
+.qcard:nth-child(2),
+.qcard:nth-child(5),
+.qcard:nth-child(8) { background: #fafafa; }
+.qcard .qix {
+  font-family: var(--kod);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--gray-light);
+  text-transform: uppercase;
+}
+.qcard h3 {
+  font-family: var(--kod);
+  font-size: clamp(18px, 1.5vw, 22px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  margin: 0;
+  color: var(--gray);
+  text-wrap: balance;
+}
+.qcard::before {
+  content: "“";
+  position: absolute;
+  top: 16px; right: 18px;
+  font-family: var(--kod);
+  font-size: 48px;
+  line-height: 1;
+  background: var(--grad);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.qcard:hover::before { opacity: 0.5; }
+@media (max-width: 900px) {
+  .quotes-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .quotes-grid { grid-template-columns: 1fr; }
+}
+
+/* Timeline muted */
+.timeline h4 .muted { color: var(--gray-light); font-weight: 400; }
+
+/* ===== Directions (10) ===== */
+.dir-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  overflow: hidden;
+}
+.dir {
+  background: #141417;
+  padding: 26px 24px 28px;
+  display: flex; flex-direction: column; gap: 14px;
+  position: relative;
+  min-height: 220px;
+  transition: background .3s ease;
+}
+.dir:hover { background: #18181c; }
+.dir.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,60,223,0.22), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(0,20,255,0.28), transparent 55%),
+    #0e0e11;
+  padding: 40px 36px;
+  justify-content: space-between;
+}
+.dir-tag {
+  font-family: var(--kod);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.dir h3 {
+  font-family: var(--kod);
+  font-size: clamp(22px, 2vw, 32px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+}
+.dir.featured h3 {
+  font-size: clamp(32px, 4.4vw, 64px);
+  line-height: 0.95;
+}
+.dir h3 .accent {
+  background: var(--grad);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.dir p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+  margin: 0;
+}
+.dir.featured p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+  max-width: 320px;
+}
+.dir .pop {
+  position: absolute;
+  top: 16px; right: 16px;
+  padding: 5px 12px;
+  background: var(--pink);
+  color: #fff;
+  border-radius: 100px;
+  font-family: var(--kod);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+@media (max-width: 1000px) {
+  .dir-grid { grid-template-columns: repeat(2, 1fr); }
+  .dir.featured { grid-column: span 2; grid-row: span 1; }
+}
+@media (max-width: 600px) {
+  .dir-grid { grid-template-columns: 1fr; }
+  .dir.featured { grid-column: span 1; }
+}
+
+/* Trainers grid — 5 instead of 4 */
+.trainers-grid.five { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 1100px) { .trainers-grid.five { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 700px)  { .trainers-grid.five { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px)  { .trainers-grid.five { grid-template-columns: 1fr; } }
+
+/* ===== Single studio block ===== */
+.studio-single {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: stretch;
+}
+.studio-single > * { min-width: 0; }
+.studio-photo.big { aspect-ratio: 16 / 11; }
+.studio-info {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex; flex-direction: column;
+}
+.info-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.info-row:last-of-type { border-bottom: none; }
+.info-row .lbl {
+  font-family: var(--kod);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  padding-top: 2px;
+}
+.info-row .val { font-size: 15px; line-height: 1.4; color: var(--gray); }
+.info-actions {
+  margin-top: auto;
+  padding-top: 20px;
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+@media (max-width: 1000px) {
+  .studio-single { grid-template-columns: 1fr; }
+}
+
+/* ===== VS table (us vs networks) ===== */
+.vs-table {
+  display: grid;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  background: #141417;
+}
+.vs-row {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.2fr;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.vs-row:first-child { border-top: none; }
+.vs-row.vs-head {
+  background: #18181c;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.vs-lbl, .vs-us, .vs-them { padding: 18px 22px; font-size: 15px; line-height: 1.4; }
+.vs-head .vs-us, .vs-head .vs-them {
+  font-family: var(--kod);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.vs-head .vs-us {
+  background: linear-gradient(180deg, rgba(255,60,223,0.18), rgba(0,20,255,0.12));
+}
+.vs-lbl {
+  font-family: var(--kod);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.55);
+  background: #18181c;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+.vs-us {
+  background: linear-gradient(180deg, rgba(255,60,223,0.08), rgba(0,20,255,0.06));
+  color: #fff;
+  border-left: 1px solid rgba(255,60,223,0.2);
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+.vs-us b { color: #fff; font-weight: 500; }
+.vs-them { color: rgba(255,255,255,0.5); }
+@media (max-width: 700px) {
+  .vs-row { grid-template-columns: 1fr; }
+  .vs-row { padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+  .vs-lbl { border-right: none; padding-bottom: 6px; }
+  .vs-us, .vs-them { padding-top: 6px; padding-bottom: 14px; border-left: none; }
+  .vs-them::before { content: "Сетевой клуб: "; color: rgba(255,255,255,0.35); }
+  .vs-us::before { content: "Мы: "; color: rgba(255,60,223,0.7); }
+}
+
+/* ===== Price blocks (Bungee) ===== */
+.price-block {
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+.price-block-head {
+  display: flex; flex-direction: column; gap: 6px;
+  margin-bottom: 24px;
+}
+.price-block-head .eyebrow { display: block; color: var(--pink); }
+.price-block-title {
+  font-family: var(--kod);
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--gray);
+}
+.price-block-title .muted { color: var(--gray-light); font-size: 0.65em; letter-spacing: 0.02em; }
+
+.bf-price-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.bfp {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 28px 24px 30px;
+  display: flex; flex-direction: column; gap: 12px;
+  position: relative;
+  transition: border-color .25s ease, transform .25s ease;
+}
+.bfp:hover { border-color: rgba(255,60,223,0.4); transform: translateY(-2px); }
+.bfp-meta {
+  font-family: var(--kod);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+}
+.bfp-amount {
+  font-family: var(--kod);
+  font-size: clamp(28px, 2.8vw, 38px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--gray);
+}
+.bfp-amount .strike {
+  font-size: 0.55em;
+  color: var(--gray-light);
+  text-decoration: line-through;
+  margin-left: 8px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.bfp-ppv {
+  font-size: 14px;
+  color: var(--gray-light);
+  line-height: 1.3;
+}
+.bfp-perks {
+  list-style: none;
+  margin: 8px 0 0 0; padding: 12px 0 0;
+  border-top: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.bfp-perks li {
+  font-size: 13px;
+  color: var(--gray);
+  padding-left: 18px;
+  position: relative;
+}
+.bfp-perks li::before {
+  content: "+";
+  position: absolute; left: 0; top: 0;
+  color: var(--pink);
+  font-weight: 500;
+}
+.bfp.hit, .bfp.best {
+  background: #0e0e11;
+  border-color: rgba(255,60,223,0.3);
+  color: #fff;
+}
+.bfp.best {
+  background: linear-gradient(180deg, #0e0e11, #1a0e1c);
+  border-color: rgba(255,60,223,0.5);
+  box-shadow: 0 18px 50px rgba(255,60,223,0.18);
+}
+.bfp.hit .bfp-amount, .bfp.best .bfp-amount { color: #fff; }
+.bfp.hit .bfp-meta, .bfp.best .bfp-meta { color: rgba(255,255,255,0.5); }
+.bfp.hit .bfp-ppv, .bfp.best .bfp-ppv { color: rgba(255,255,255,0.7); }
+.bfp.hit .bfp-perks, .bfp.best .bfp-perks { border-top-color: rgba(255,255,255,0.1); }
+.bfp.hit .bfp-perks li, .bfp.best .bfp-perks li { color: rgba(255,255,255,0.85); }
+.bfp-badge {
+  position: absolute;
+  top: -10px; left: 22px;
+  padding: 5px 12px;
+  background: var(--pink);
+  color: #fff;
+  border-radius: 100px;
+  font-family: var(--kod);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.bfp.best .bfp-badge { background: var(--blue); }
+.bfp.single {
+  max-width: 420px;
+}
+@media (max-width: 1000px) { .bf-price-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px)  { .bf-price-grid { grid-template-columns: 1fr; } }
+
+/* ===== Promos ===== */
+.promos-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 16px;
+}
+.promo {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px 28px 36px;
+  display: flex; flex-direction: column; gap: 14px;
+  position: relative;
+  min-height: 220px;
+  transition: border-color .25s ease;
+}
+.promo:hover { border-color: rgba(255,60,223,0.4); }
+.promo-tag {
+  font-family: var(--kod);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  align-self: flex-start;
+  padding: 6px 12px;
+  background: var(--grad-soft);
+  color: var(--pink);
+  border-radius: 100px;
+  border: 1px solid rgba(255,60,223,0.3);
+}
+.promo h3 {
+  font-family: var(--kod);
+  font-size: clamp(22px, 2.2vw, 30px);
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--gray);
+}
+.promo p {
+  font-size: 14px;
+  color: var(--gray-light);
+  line-height: 1.5;
+  margin: 0;
+  margin-top: auto;
+}
+.promo-main {
+  background: linear-gradient(180deg, #ffe7f8, #fff);
+  border-color: rgba(255,60,223,0.3);
+}
+.promo-main h3 {
+  font-size: clamp(28px, 3.2vw, 44px);
+  background: var(--grad);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.promo-strike {
+  font-family: var(--kod);
+  font-size: 14px;
+  color: var(--gray-light);
+  text-decoration: line-through;
+  letter-spacing: 0.04em;
+  margin-top: -8px;
+}
+.promo-main .btn { margin-top: auto; align-self: flex-start; }
+@media (max-width: 900px) {
+  .promos-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body class="bungee-page">
+
+<!-- ───────── Header ───────── -->
+<header class="header on-dark" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo on-dark" aria-label="FLOW">
+      <img class="logo-full light" src="assets/images/Logo%20(2).svg" alt="FLOW" />
+      <img class="logo-full dark"  src="assets/images/Logo_dark.png" alt="" aria-hidden="true" />
+    </a>
+    <nav>
+      <a href="#what">Что это</a>
+      <a href="#compare">Сравнение</a>
+      <a href="#timeline">Результаты</a>
+      <a href="#directions">Направления</a>
+      <a href="#trainers">Тренеры</a>
+      <a href="#prices">Цены</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-cta">
+      <span class="phone">+7 (981) 002-24-08</span>
+      <a href="#final" class="btn btn-primary">Записаться</a>
+    </div>
+  </div>
+</header>
+
+<!-- ───────── Hero ───────── -->
+<section class="hero bungee-hero" id="top" data-screen-label="01 Hero">
+  <span class="bungee-rope rope-1" aria-hidden="true"></span>
+  <span class="bungee-rope rope-2" aria-hidden="true"></span>
+  <span class="bungee-rope rope-3" aria-hidden="true"></span>
+  <span class="hero-glow glow-pink" aria-hidden="true"></span>
+  <span class="hero-glow glow-blue" aria-hidden="true"></span>
+
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-eyebrow"><span class="dot"></span>FLOW · Банджи-фитнес · СПб, Озерки</span>
+      <h1>
+        Банджи-фитнес.<br />
+        Не качаемся —<br />
+        <span class="grad-word">летаем</span>
+      </h1>
+      <p class="hero-sub">
+        Минус 5 кг за месяц без боли в мышцах. Сжигаешь <b>700–1000 ккал</b> за тренировку — и не чувствуешь, что это спорт. Просто летаешь.
+      </p>
+      <div class="hero-cta">
+        <a href="#final" class="btn btn-primary">
+          Записаться на пробное за 1 000 ₽
+          <svg class="arrow" viewBox="0 0 14 10" fill="none"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#what" class="btn btn-outline-light">Что такое банджи</a>
+      </div>
+      <p class="hero-meta">60 минут · Группы по 3–7 человек · Студия на Есенина (Озерки)</p>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <div class="v"><span class="star">★</span>4,9</div>
+          <div class="lbl">Яндекс.Карты</div>
+        </div>
+        <div class="trust-item">
+          <div class="v">6 лет</div>
+          <div class="lbl">на рынке СПб</div>
+        </div>
+        <div class="trust-item">
+          <div class="v">1000+</div>
+          <div class="lbl">клиенток</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual hero-fly">
+      <div class="fly-frame">
+        <span class="fly-rope rope-l" aria-hidden="true"></span>
+        <span class="fly-rope rope-r" aria-hidden="true"></span>
+        <div class="fly-silh"></div>
+        <div class="fly-tag">в полёте</div>
+        <div class="fly-cal"><span class="grad">700–1000</span><span class="cal-lbl">ккал / 60 мин</span></div>
+        <div class="ph-label">[hero_client_flying.png · клиентка на резинках, прозрачный фон]</div>
+      </div>
+      <div class="hero-chip chip-1">
+        <span class="chip-num">−5 кг</span>
+        <span class="chip-txt">за месяц без диет<br /><b>и боли в мышцах</b></span>
+      </div>
+      <div class="hero-chip chip-2">
+        <span class="chip-dot"></span>
+        <span class="chip-txt">Группы <b>3–7 человек</b><br />тренер видит каждую</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Marquee ───────── -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="word">Полёт</span><span class="sep">●</span>
+    <span class="alt">Невесомость</span><span class="sep">●</span>
+    <span class="grad">700 ккал</span><span class="sep">●</span>
+    <span class="word">Прыжки</span><span class="sep">●</span>
+    <span class="alt">Хореография</span><span class="sep">●</span>
+    <span class="grad">Без боли</span><span class="sep">●</span>
+    <span class="word">Полёт</span><span class="sep">●</span>
+    <span class="alt">Невесомость</span><span class="sep">●</span>
+    <span class="grad">700 ккал</span><span class="sep">●</span>
+    <span class="word">Прыжки</span><span class="sep">●</span>
+    <span class="alt">Хореография</span><span class="sep">●</span>
+    <span class="grad">Без боли</span><span class="sep">●</span>
+  </div>
+</div>
+
+<!-- ───────── What is bungee ───────── -->
+<section id="what" data-screen-label="02 What">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num">01</div>
+      <div class="head-text">
+        <span class="eyebrow pink">Что такое банджи</span>
+        <h2>Если ты ни разу<br />не пробовала — это<br />похоже на <span class="grad-word">полёт</span></h2>
+      </div>
+    </div>
+    <p class="lead reveal" style="max-width:760px; margin-bottom: clamp(40px, 5vw, 64px);">
+      Банджи — это тренировка на эластичных резинках, прикреплённых к потолку. Резинки забирают твой вес: ты прыгаешь, кружишься, отжимаешься «в воздухе» — и не давишь на колени и спину.
+    </p>
+
+    <div class="conf-grid reveal">
+      <div class="conf-item">
+        <span class="pill">Невесомость</span>
+        <h3>Резинки берут до 80% веса</h3>
+        <p>Прыжки, которые в обычном фитнесе разнесли бы коленям — здесь вообще не чувствуются. Ударная нагрузка на суставы — минимальная.</p>
+      </div>
+      <div class="conf-item">
+        <span class="pill">Жиросжигание</span>
+        <h3>700–1000 ккал за час</h3>
+        <p>В 2 раза больше, чем обычная кардио-сессия в зале. И в 3 раза веселее. Калории уходят и не возвращаются после в виде «доедания стресса».</p>
+      </div>
+      <div class="conf-item">
+        <span class="pill">Хореография</span>
+        <h3>Каждая тренировка — мини-танец</h3>
+        <p>Элементы складываются в комбинацию, и к концу занятия ты выполняешь её под музыку. Со стороны — выглядит как номер.</p>
+      </div>
+      <div class="conf-item">
+        <span class="pill">Анти-стресс</span>
+        <h3>Час полёта = два часа массажа</h3>
+        <p>Эндорфины зашкаливают, тревога уходит сама. После тренировки спишь как в детстве.</p>
+      </div>
+      <div class="conf-item">
+        <span class="pill">Здоровая спина</span>
+        <h3>Декомпрессия позвоночника</h3>
+        <p>Резинки тянут позвоночник вверх, как декомпрессия у остеопата. Сидячая работа, грыжи, зажимы — банджи разгружает то, что копится годами.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── For you / 3 personas ───────── -->
+<section class="tight" id="for-you" data-screen-label="03 For You">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num">02</div>
+      <div class="head-text">
+        <span class="eyebrow pink">Это для тебя, если…</span>
+        <h2>Узнаёшь себя?</h2>
+      </div>
+    </div>
+
+    <div class="persona-grid">
+      <article class="persona reveal">
+        <div class="badge">01</div>
+        <div class="quote">«Пробовала залы —&nbsp;<span class="grad">не моё</span>»</div>
+        <p>Беговая дорожка скучная, штанги — страшно, групповые занятия — слишком людно. Здесь группы по 3–7 человек, и тренировка как игра.</p>
+        <div class="check"><span>→</span> Это про меня</div>
+      </article>
+      <article class="persona reveal">
+        <div class="badge">02</div>
+        <div class="quote">«Хочу похудеть, <span class="grad">но без насилия</span>»</div>
+        <p>Диеты не работают, на тренажёрах больно, после фитнеса есть хочется ещё сильнее. Банджи сжигает калории так, что ты этого не замечаешь — и не доедаешь стресс потом.</p>
+        <div class="check"><span>→</span> Это про меня</div>
+      </article>
+      <article class="persona reveal">
+        <div class="badge">03</div>
+        <div class="quote">«У меня проблемы со <span class="grad">спиной и коленями</span>»</div>
+        <p>Резинки снимают ударную нагрузку с суставов. Ты прыгаешь, не приземляясь жёстко. Можно заниматься даже с межпозвоночной грыжей (после консультации с врачом).</p>
+        <div class="check"><span>→</span> Это про меня</div>
+      </article>
+    </div>
+
+    <div style="text-align:center; margin-top:48px;" class="reveal">
+      <a href="#final" class="btn btn-primary">
+        Записаться на пробное
+        <svg class="arrow" viewBox="0 0 14 10" fill="none"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Compare table ───────── -->
+<section class="cases" id="compare" data-screen-label="04 Compare">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num on-dark">03</div>
+      <div class="head-text">
+        <span class="eyebrow on-dark">Почему банджи лучше</span>
+        <h2>В зале ты считаешь подходы.<br />На банджи — <span class="grad-word">забываешь о времени</span></h2>
+      </div>
+    </div>
+
+    <div class="cmp-table reveal">
+      <div class="cmp-head">
+        <div class="cmp-row-lbl"></div>
+        <div class="cmp-col">Беговая<br />дорожка</div>
+        <div class="cmp-col">Силовая<br />в зале</div>
+        <div class="cmp-col">Танцы /<br />Зумба</div>
+        <div class="cmp-col cmp-us">Банджи<br /><span class="cmp-brand">FLOW</span></div>
+      </div>
+      <div class="cmp-row"><div class="cmp-row-lbl">Калорий за час</div><div class="cmp-col">400–500</div><div class="cmp-col">300–400</div><div class="cmp-col">400–600</div><div class="cmp-col cmp-us"><b>700–1000</b></div></div>
+      <div class="cmp-row"><div class="cmp-row-lbl">Боль в мышцах после</div><div class="cmp-col">сильная</div><div class="cmp-col">сильная</div><div class="cmp-col">средняя</div><div class="cmp-col cmp-us"><b>почти нет</b></div></div>
+      <div class="cmp-row"><div class="cmp-row-lbl">Нагрузка на колени</div><div class="cmp-col">высокая</div><div class="cmp-col">средняя</div><div class="cmp-col">средняя</div><div class="cmp-col cmp-us"><b>минимальная</b></div></div>
+      <div class="cmp-row"><div class="cmp-row-lbl">Внимание тренера</div><div class="cmp-col">нет</div><div class="cmp-col">нет</div><div class="cmp-col">мало</div><div class="cmp-col cmp-us"><b>постоянное</b></div></div>
+      <div class="cmp-row"><div class="cmp-row-lbl">Скучно через месяц</div><div class="cmp-col">да</div><div class="cmp-col">да</div><div class="cmp-col">иногда</div><div class="cmp-col cmp-us"><b>программа меняется</b></div></div>
+      <div class="cmp-row"><div class="cmp-row-lbl">Эффект «полёта»</div><div class="cmp-col">—</div><div class="cmp-col">—</div><div class="cmp-col">—</div><div class="cmp-col cmp-us"><b>✓</b></div></div>
+    </div>
+
+    <p class="cmp-quote reveal">
+      <span class="open-q">«</span>Я бросала фитнес 5 раз.<br />
+      <span class="grad">На банджи хожу год</span>.<span class="close-q">»</span>
+    </p>
+    <p class="cmp-quote-sub reveal">— фразу, которую мы слышим чаще остальных</p>
+  </div>
+</section>
+
+<!-- ───────── 8 quotes ───────── -->
+<section id="quotes" data-screen-label="05 Quotes">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num">04</div>
+      <div class="head-text">
+        <span class="eyebrow pink">Что говорят клиентки</span>
+        <h2>8 фраз, которые<br />мы слышим чаще всего</h2>
+      </div>
+    </div>
+
+    <div class="quotes-grid">
+      <article class="qcard reveal"><div class="qix">01</div><h3>«Нет сильных болей<br />в мышцах»</h3></article>
+      <article class="qcard reveal"><div class="qix">02</div><h3>«Килограммы уходят<br />как вода»</h3></article>
+      <article class="qcard reveal"><div class="qix">03</div><h3>«После банджи чувствую себя<br />заново рождённой»</h3></article>
+      <article class="qcard reveal"><div class="qix">04</div><h3>«Это выглядит<br />красиво и весело»</h3></article>
+      <article class="qcard reveal"><div class="qix">05</div><h3>«Чувствую себя<br />птицей в полёте»</h3></article>
+      <article class="qcard reveal"><div class="qix">06</div><h3>«Сжигаю 700–1000 ккал<br />и не страдаю»</h3></article>
+      <article class="qcard reveal"><div class="qix">07</div><h3>«Наконец занимаюсь<br />спортом регулярно»</h3></article>
+      <article class="qcard reveal"><div class="qix">08</div><h3>«Хожу в студию<br />как к себе домой»</h3></article>
+    </div>
+
+    <div style="text-align:center; margin-top:48px;" class="reveal">
+      <a href="#final" class="btn btn-primary">
+        Хочу так же — записаться на пробное
+        <svg class="arrow" viewBox="0 0 14 10" fill="none"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Timeline ───────── -->
+<section style="background: var(--bg-tone);" id="timeline" data-screen-label="06 Timeline">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num">05</div>
+      <div class="head-text">
+        <span class="eyebrow pink">Что ты получишь</span>
+        <h2>Результаты по срокам —<br />без воды и завышенных обещаний</h2>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="tl-step">
+        <div class="marker">1 трен.</div>
+        <h4>За 1 тренировку</h4>
+        <h3>Поймёшь, что фитнес может не быть пыткой. Сожжёшь 700–1000 ккал. Получишь первый «полёт».</h3>
+      </div>
+      <div class="tl-step">
+        <div class="marker">1 мес</div>
+        <h4>За 1 месяц <span class="muted">· 8–12 занятий</span></h4>
+        <h3>Минус 3–5 кг. Подтянутся ягодицы, ноги, пресс. Уйдёт скованность в плечах и спине.</h3>
+      </div>
+      <div class="tl-step">
+        <div class="marker">3 мес</div>
+        <h4>За 3 месяца</h4>
+        <h3>Минус 8–10 кг. Видимый рельеф. Лучше спишь, меньше срываешься на еду. Тренировка стала привычкой.</h3>
+      </div>
+      <div class="tl-step">
+        <div class="marker">6 мес+</div>
+        <h4>За полгода и дальше</h4>
+        <h3>Новая фигура. Сложные элементы и комбинации. Восстанавливаешься после рабочей недели за один час.</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 10 directions ───────── -->
+<section class="levels" id="directions" data-screen-label="07 Directions">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num on-dark">06</div>
+      <div class="head-text">
+        <span class="eyebrow on-dark">Один абонемент</span>
+        <h2>10 направлений<br />в одной студии</h2>
+      </div>
+      <p class="head-aside on-dark">Базируешься на банджи, остальное добиваешь по настроению. Растяжка после кардио, пилатес для расслабления, High Heels для драйва.</p>
+    </div>
+
+    <div class="dir-grid">
+      <article class="dir featured reveal">
+        <div class="pop">Флагман</div>
+        <div class="dir-tag">700–1000 ккал</div>
+        <h3>Банджи-<br /><span class="accent">фитнес</span></h3>
+        <p>Жиросжигание + хореография на эластичных резинках. Главное направление студии.</p>
+      </article>
+      <article class="dir reveal"><div class="dir-tag">гибкость</div><h3>Растяжка</h3><p>Подвижность суставов, эластичность мышц. После — как заново.</p></article>
+      <article class="dir reveal"><div class="dir-tag">сила</div><h3>Функционал</h3><p>Выносливость, координация, сила. Тело учится работать единым целым.</p></article>
+      <article class="dir reveal"><div class="dir-tag">осанка</div><h3>Пилатес</h3><p>Плоский живот, ровная осанка, длинная шея. Без «накачаться».</p></article>
+      <article class="dir reveal"><div class="dir-tag">драйв</div><h3>High Heels</h3><p>Танец на каблуках. Hip-hop, vogue, twerk, jazz funk.</p></article>
+      <article class="dir reveal"><div class="dir-tag">реабилитация</div><h3>Здоровая&nbsp;спина</h3><p>Программа восстановления и профилактики. Боли уходят, гибкость возвращается.</p></article>
+      <article class="dir reveal"><div class="dir-tag">подвес</div><h3>TRX</h3><p>Функциональный тренинг с подвесным тренажёром. Все мышцы за одну сессию.</p></article>
+      <article class="dir reveal"><div class="dir-tag">релакс</div><h3>МФР</h3><p>Миофасциальный релиз. Снятие зажимов, ускорение восстановления.</p></article>
+      <article class="dir reveal"><div class="dir-tag">в гамаках</div><h3>Стрейч <br />в воздухе</h3><p>Тянемся в невесомости. Никакой нагрузки на позвоночник.</p></article>
+      <article class="dir reveal"><div class="dir-tag">на все три</div><h3>Шпагат</h3><p>Отдельная программа. Сядешь на продольные и поперечный.</p></article>
+    </div>
+
+    <p class="levels-note reveal">Все направления — <strong>по единому абонементу</strong>. Утренний абонемент (до 16:00) — <a href="#prices">на 30% дешевле</a>.</p>
+  </div>
+</section>
+
+<!-- ───────── Can I ───────── -->
+<section id="confidence" data-screen-label="08 Confidence">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num">07</div>
+      <div class="head-text">
+        <span class="eyebrow pink">А я смогу?</span>
+        <h2>«У меня лишний вес / больная&nbsp;спина / ноль подготовки — мне можно?»</h2>
+      </div>
+    </div>
+    <p class="lead reveal" style="max-width:760px; margin-bottom: clamp(40px, 5vw, 56px);">
+      Банджи был придуман именно как <strong>щадящий</strong> фитнес. На него идут как раз те, кому в зал нельзя.
+    </p>
+
+    <div class="conf-grid reveal">
+      <div class="conf-item">
+        <span class="pill">Любая форма</span>
+        <h3>Резинки рассчитаны до 120 кг</h3>
+        <p>У нас занимаются и девушки 45 кг, и женщины 100+ кг. Тренер подбирает нагрузку под тебя — резинку нужной жёсткости, амплитуду, темп.</p>
+      </div>
+      <div class="conf-item">
+        <span class="pill">Спина и суставы</span>
+        <h3>Минимальная ударная нагрузка</h3>
+        <p>Банджи разрабатывали в том числе для реабилитации. С грыжами, протрузиями, болями в коленях — заниматься можно (после консультации с врачом).</p>
+      </div>
+      <div class="conf-item">
+        <span class="pill">С нуля</span>
+        <h3>Никаких сложных движений на старте</h3>
+        <p>Тренер показывает на пальцах, страхует, поправляет. Уже через 2 занятия ты делаешь связки, которые со стороны выглядят сложно.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Process ───────── -->
+<section style="background: var(--bg-tone);" id="process" data-screen-label="09 Process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num">08</div>
+      <div class="head-text">
+        <span class="eyebrow pink">Как проходит тренировка</span>
+        <h2>60 минут, после которых<br /><span class="grad-word">хочется ещё</span></h2>
+      </div>
+    </div>
+
+    <div class="process-wrap">
+      <div class="process-left reveal">
+        <div class="timer"><span class="grad">3–7</span></div>
+        <div class="timer-lbl">человек в группе</div>
+        <div class="footnote">
+          Это <strong>принципиально</strong>: больше — теряется внимание тренера, меньше — теряется энергия группы.
+        </div>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <div class="ix">01</div>
+          <div class="body">
+            <h4>Разминка</h4>
+            <p>Включаемся, разогреваем суставы, готовим тело. На банджи нельзя заходить «холодной».</p>
+          </div>
+          <div class="dur">10 мин</div>
+        </div>
+        <div class="step">
+          <div class="ix">02</div>
+          <div class="body">
+            <h4>Изучение элементов</h4>
+            <p>Тренер показывает 5–7 движений по отдельности. Отрабатываем медленно, с обратной связью.</p>
+          </div>
+          <div class="dur">15 мин</div>
+        </div>
+        <div class="step">
+          <div class="ix">03</div>
+          <div class="body">
+            <h4>Танцевальная комбинация</h4>
+            <p>Соединяем элементы под музыку. К концу — полный танец из того, что учили по частям.</p>
+          </div>
+          <div class="dur">25 мин</div>
+        </div>
+        <div class="step">
+          <div class="ix">04</div>
+          <div class="body">
+            <h4>Заминка и растяжка</h4>
+            <p>Закрываем тело, тянемся, дышим. Уходишь не разбитой, а собранной.</p>
+          </div>
+          <div class="dur">10 мин</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Trainers ───────── -->
+<section id="trainers" data-screen-label="10 Trainers">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num">09</div>
+      <div class="head-text">
+        <span class="eyebrow pink">Тренеры</span>
+        <h2>Сертифицированные<br />тренеры Bungee Fitness</h2>
+      </div>
+      <p class="head-aside">У нас работают только тренеры с международной сертификацией Bungee Fitness и опытом 5+ лет в фитнесе.</p>
+    </div>
+
+    <div class="trainers-grid five">
+      <article class="trainer reveal">
+        <div class="trainer-photo">
+          <div class="silh"></div>
+          <div class="ph-label">[trainer_anna_t.jpg]</div>
+          <div class="ig">@</div>
+        </div>
+        <h4>Анна Трушникова</h4>
+        <div class="role">Bungee · Растяжка · Спина</div>
+        <p>Сертифицированный тренер. КМС по фигурному катанию. В фитнесе и спорте 13+ лет.</p>
+      </article>
+      <article class="trainer reveal">
+        <div class="trainer-photo">
+          <div class="silh"></div>
+          <div class="ph-label">[trainer_anna_tu.jpg]</div>
+          <div class="ig">@</div>
+        </div>
+        <h4>Анна Туча</h4>
+        <div class="role">Bungee · High Heels · Танцы</div>
+        <p>Художественная гимнастика с детства, профессиональные танцы, академия инструкторов.</p>
+      </article>
+      <article class="trainer reveal">
+        <div class="trainer-photo">
+          <div class="silh"></div>
+          <div class="ph-label">[trainer_liza.jpg]</div>
+          <div class="ig">@</div>
+        </div>
+        <h4>Елизавета Журбук</h4>
+        <div class="role">Силовые · Аэройога · МФР</div>
+        <p>Тренер по силовым программам, аэройоге, растяжке. Сборная СПб по стрип-пластике.</p>
+      </article>
+      <article class="trainer reveal">
+        <div class="trainer-photo">
+          <div class="silh"></div>
+          <div class="ph-label">[trainer_angelina.jpg]</div>
+          <div class="ig">@</div>
+        </div>
+        <h4>Ангелина Волкова</h4>
+        <div class="role">Bungee Fitness</div>
+        <p>Сертифицированный тренер Bungee Fitness.</p>
+      </article>
+      <article class="trainer reveal">
+        <div class="trainer-photo">
+          <div class="silh"></div>
+          <div class="ph-label">[trainer_laisan.jpg]</div>
+          <div class="ig">@</div>
+        </div>
+        <h4>Ляйсан Мигранова</h4>
+        <div class="role">Bungee · Хореограф</div>
+        <p>Сертифицированный тренер Bungee Fitness, хореограф студии.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Studio ───────── -->
+<section style="background: var(--bg-tone);" id="studio" data-screen-label="11 Studio">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num">10</div>
+      <div class="head-text">
+        <span class="eyebrow pink">Студия</span>
+        <h2>Самая уютная студия<br />в Санкт-Петербурге</h2>
+      </div>
+      <p class="head-aside">Не зал в подвале и не сетевой фитнес. Атмосферное пространство на Озерках с панорамными окнами на берёзовую аллею.</p>
+    </div>
+
+    <div class="studio-single reveal">
+      <div class="studio-photo big has-photo">
+        <div class="slider" data-slider aria-roledescription="Галерея фото студии FLOW на Озерках">
+          <div class="slider-track">
+            <img src="assets/images/ozerki/IMG_2363.jpg" alt="Зал FLOW на Озерках — фото 1" loading="lazy" />
+            <img src="assets/images/ozerki/IMG_2364.jpg" alt="Зал FLOW на Озерках — фото 2" loading="lazy" />
+            <img src="assets/images/ozerki/IMG_2365.jpg" alt="Зал FLOW на Озерках — фото 3" loading="lazy" />
+            <img src="assets/images/ozerki/IMG_2370.jpg" alt="Зал FLOW на Озерках — фото 4" loading="lazy" />
+            <img src="assets/images/ozerki/IMG_2371.jpg" alt="Зал FLOW на Озерках — фото 5" loading="lazy" />
+            <img src="assets/images/ozerki/IMG_2376.jpg" alt="Зал FLOW на Озерках — фото 6" loading="lazy" />
+            <img src="assets/images/ozerki/IMG_2379.jpg" alt="Зал FLOW на Озерках — фото 7" loading="lazy" />
+            <img src="assets/images/ozerki/IMG_2381.jpg" alt="Зал FLOW на Озерках — фото 8" loading="lazy" />
+            <img src="assets/images/ozerki/IMG_2407.jpg" alt="Зал FLOW на Озерках — фото 9" loading="lazy" />
+            <img src="assets/images/ozerki/IMG_2338.jpg" alt="Зал FLOW на Озерках — фото 10" loading="lazy" />
+            <img src="assets/images/ozerki/IMG_2362.jpg" alt="Зал FLOW на Озерках — фото 11" loading="lazy" />
+            <img src="assets/images/ozerki/IMG_1569.jpg" alt="Зал FLOW на Озерках — фото 12" loading="lazy" />
+            <img src="assets/images/ozerki/IMG_1681.jpg" alt="Зал FLOW на Озерках — фото 13" loading="lazy" />
+            <img src="assets/images/ozerki/DSC01074.jpg" alt="Зал FLOW на Озерках — фото 14" loading="lazy" />
+            <img src="assets/images/ozerki/DSC08734.jpg" alt="Зал FLOW на Озерках — фото 15" loading="lazy" />
+            <img src="assets/images/ozerki/2P9A0052_чб.jpg" alt="Зал FLOW на Озерках — фото 16" loading="lazy" />
+            <img src="assets/images/ozerki/chDfiTSfulhnG13pBq0dt6CUdLlPyYt0fJKVGBdNbG3YLV43z_0bz8TgXqmUG6I.jpg" alt="Зал FLOW на Озерках — фото 17" loading="lazy" />
+            <img src="assets/images/ozerki/QwjA54zxMz5I_KS7BG5AZka0zHtEKnr_hUZnW4AqRU7EhgaCptmhmqJkrP0O1EZ.jpg" alt="Зал FLOW на Озерках — фото 18" loading="lazy" />
+          </div>
+          <button type="button" class="slider-nav prev" aria-label="Предыдущее фото"><svg viewBox="0 0 14 14" aria-hidden="true" fill="none"><path d="M9 2 4 7l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button type="button" class="slider-nav next" aria-label="Следующее фото"><svg viewBox="0 0 14 14" aria-hidden="true" fill="none"><path d="m5 2 5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="slider-dots" aria-hidden="true">
+            <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          </div>
+        </div>
+        <div class="pin">FLOW</div>
+      </div>
+      <div class="studio-info">
+        <div class="info-row"><div class="lbl">Адрес</div><div class="val">СПб, ул.&nbsp;Есенина, д.&nbsp;1, корп.&nbsp;1</div></div>
+        <div class="info-row"><div class="lbl">Метро</div><div class="val">Озерки · 5 минут пешком</div></div>
+        <div class="info-row"><div class="lbl">Парковка</div><div class="val">Есть</div></div>
+        <div class="info-row"><div class="lbl">Будни</div><div class="val">10:00 — 22:00</div></div>
+        <div class="info-row"><div class="lbl">Выходные</div><div class="val">10:30 — 18:00</div></div>
+        <div class="info-row"><div class="lbl">Внутри</div><div class="val">Новое оборудование, душевые, средства ухода, чай и вода после тренировки</div></div>
+        <div class="info-actions">
+          <a href="#final" class="btn btn-primary">Записаться</a>
+          <a href="#" class="btn btn-outline">Расписание</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── vs fitness club ───────── -->
+<section class="cases" id="vs" data-screen-label="12 VS">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num on-dark">11</div>
+      <div class="head-text">
+        <span class="eyebrow on-dark">Чем мы отличаемся</span>
+        <h2>Сравни сама</h2>
+      </div>
+    </div>
+
+    <div class="vs-table reveal">
+      <div class="vs-row vs-head"><div class="vs-lbl"></div><div class="vs-us">FLOW · Банджи</div><div class="vs-them">Сетевой фитнес-клуб</div></div>
+      <div class="vs-row"><div class="vs-lbl">Размер группы</div><div class="vs-us"><b>3–7 человек</b></div><div class="vs-them">до 25</div></div>
+      <div class="vs-row"><div class="vs-lbl">Внимание тренера</div><div class="vs-us"><b>каждой клиентке</b></div><div class="vs-them">«успей, если получится»</div></div>
+      <div class="vs-row"><div class="vs-lbl">Раздевалки</div><div class="vs-us"><b>без очередей</b></div><div class="vs-them">очереди в час пик</div></div>
+      <div class="vs-row"><div class="vs-lbl">Оборудование</div><div class="vs-us"><b>новое, обновляется</b></div><div class="vs-them">редко обновляется</div></div>
+      <div class="vs-row"><div class="vs-lbl">Атмосфера</div><div class="vs-us"><b>как дома</b></div><div class="vs-them">формальная, шумная</div></div>
+      <div class="vs-row"><div class="vs-lbl">Цена за тренировку</div><div class="vs-us">от 590 ₽</div><div class="vs-them">от 300 ₽, но без внимания</div></div>
+      <div class="vs-row"><div class="vs-lbl">Программа</div><div class="vs-us"><b>обновляется каждые 2 мес</b></div><div class="vs-them">стандартный набор годами</div></div>
+    </div>
+
+    <p class="cmp-quote reveal">
+      <span class="open-q">«</span>Мы дороже сетевого клуба.<br />
+      <span class="grad">И мы знаем имя каждой клиентки</span>.<span class="close-q">»</span>
+    </p>
+  </div>
+</section>
+
+<!-- ───────── Pricing ───────── -->
+<section id="prices" data-screen-label="13 Pricing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num">12</div>
+      <div class="head-text">
+        <span class="eyebrow pink">Тарифы</span>
+        <h2>Выбери свой формат</h2>
+      </div>
+      <p class="head-aside">Утренний абонемент — на 30% дешевле. При покупке в день пробного — <strong style="color:var(--pink);">−10%</strong> с любого тарифа.</p>
+    </div>
+
+    <div class="price-block reveal">
+      <div class="price-block-head">
+        <span class="eyebrow">01 · Банджи — групповые</span>
+        <h3 class="price-block-title">Главное направление</h3>
+      </div>
+      <div class="bf-price-grid">
+        <article class="bfp">
+          <div class="bfp-meta">8 занятий · 1 мес</div>
+          <div class="bfp-amount">7 590&nbsp;₽</div>
+          <div class="bfp-ppv">948 ₽ / тренировка</div>
+          <ul class="bfp-perks"><li>Скидка на продление 5%</li><li>1 гостевое посещение</li></ul>
+        </article>
+        <article class="bfp hit">
+          <span class="bfp-badge">⭐ Хит</span>
+          <div class="bfp-meta">25 занятий · 3 мес</div>
+          <div class="bfp-amount">20 900&nbsp;₽</div>
+          <div class="bfp-ppv">836 ₽ / тренировка</div>
+          <ul class="bfp-perks"><li>Скидка на продление 5%</li><li>3 гостевых посещения</li></ul>
+        </article>
+        <article class="bfp">
+          <div class="bfp-meta">Безлимит · 1 мес</div>
+          <div class="bfp-amount">11 900&nbsp;₽</div>
+          <div class="bfp-ppv">без ограничений</div>
+          <ul class="bfp-perks"><li>Скидка на продление 5%</li><li>1 гостевое посещение</li></ul>
+        </article>
+        <article class="bfp best">
+          <span class="bfp-badge">⭐ Самый выгодный</span>
+          <div class="bfp-meta">Безлимит · 3 мес</div>
+          <div class="bfp-amount">32 900&nbsp;₽</div>
+          <div class="bfp-ppv">10 966 ₽ / мес</div>
+          <ul class="bfp-perks"><li>Скидка на продление 5%</li><li>3 гостевых посещения</li></ul>
+        </article>
+      </div>
+    </div>
+
+    <div class="price-block reveal">
+      <div class="price-block-head">
+        <span class="eyebrow">02 · Все направления (кроме банджи) — утренний</span>
+        <h3 class="price-block-title">Утренний абонемент <span class="muted">· до 16:00</span></h3>
+      </div>
+      <div class="bf-price-grid">
+        <article class="bfp small"><div class="bfp-meta">8 занятий · 1 мес</div><div class="bfp-amount">6 072&nbsp;₽</div><div class="bfp-ppv">759 ₽ / тренировка</div></article>
+        <article class="bfp small hit"><span class="bfp-badge">⭐ Хит</span><div class="bfp-meta">25 занятий · 3 мес</div><div class="bfp-amount">16 720&nbsp;₽</div><div class="bfp-ppv">668 ₽ / тренировка</div></article>
+        <article class="bfp small best"><span class="bfp-badge">⭐ Самый выгодный</span><div class="bfp-meta">50 занятий · 6 мес</div><div class="bfp-amount">29 520&nbsp;₽</div><div class="bfp-ppv">590 ₽ / тренировка</div></article>
+        <article class="bfp small"><div class="bfp-meta">12 занятий · 3 мес</div><div class="bfp-amount">10 320&nbsp;₽</div><div class="bfp-ppv">860 ₽ / тренировка</div></article>
+      </div>
+    </div>
+
+    <div class="price-block reveal">
+      <div class="price-block-head">
+        <span class="eyebrow">03 · Индивидуальные</span>
+        <h3 class="price-block-title">Один на один с тренером</h3>
+      </div>
+      <article class="bfp single">
+        <div class="bfp-meta">1 занятие · 60 мин</div>
+        <div class="bfp-amount">3 000&nbsp;₽ <span class="strike">3 600&nbsp;₽</span></div>
+        <div class="bfp-ppv">Полный фокус тренера на тебе</div>
+      </article>
+    </div>
+
+    <div class="price-extras reveal">
+      <div class="extra"><div class="ico">🎁</div><h4>Приведи подругу</h4><p>До +4 занятий к твоему абонементу за каждую приведённую подругу.</p></div>
+      <div class="extra"><div class="ico">💳</div><h4>Оплата долями</h4><p>Через Долями.ру, без переплат и процентов.</p></div>
+      <div class="extra"><div class="ico">🎟️</div><h4>Подарочный сертификат</h4><p>На любой номинал. Полёт — лучший подарок.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Reviews ───────── -->
+<section style="background: var(--bg-tone);" id="reviews" data-screen-label="14 Reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num">13</div>
+      <div class="head-text">
+        <span class="eyebrow pink">Отзывы</span>
+        <h2>1000+ клиенток<br />и 4,9 на Яндекс.Картах</h2>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <article class="review reveal"><div class="rating">★★★★★</div><p>Бросала фитнес пять раз. На банджи хожу год. Минус 9 кг, спина перестала болеть, и я наконец-то жду тренировку, а не уговариваю себя пойти.</p><div class="who"><div class="ava">М</div><div><div class="nm">Марина К.</div><div class="src">Яндекс.Карты · 2 мес назад</div></div></div></article>
+      <article class="review reveal"><div class="rating">★★★★★</div><p>Группа 5 человек — это огонь. Тренер видит каждую, поправляет, страхует. После сетевого клуба, где я была массовкой — небо и земля.</p><div class="who"><div class="ava">К</div><div><div class="nm">Ксения Л.</div><div class="src">2GIS · 4 мес назад</div></div></div></article>
+      <article class="review reveal"><div class="rating">★★★★★</div><p>Грыжа поясничного отдела. В зале нельзя ничего. На банджи занимаюсь уже 8 месяцев — спина стала лучше, чем была до грыжи.</p><div class="who"><div class="ava">Е</div><div><div class="nm">Елена С.</div><div class="src">Яндекс.Карты · 6 мес назад</div></div></div></article>
+      <article class="review reveal"><div class="rating">★★★★★</div><p>В первый раз думала, что упаду на голову. Через 5 минут — летаешь и хохочешь. Атмосфера в студии — как у близкой подруги дома.</p><div class="who"><div class="ava">Д</div><div><div class="nm">Дарья В.</div><div class="src">Отзовик · 3 мес назад</div></div></div></article>
+      <article class="review reveal"><div class="rating">★★★★★</div><p>Делала пробное «на сдачу». Купила безлимит на 3 месяца через час. После тренировки ходила и улыбалась как ненормальная.</p><div class="who"><div class="ava">О</div><div><div class="nm">Ольга Н.</div><div class="src">Яндекс.Карты · 1 мес назад</div></div></div></article>
+      <article class="review reveal"><div class="rating">★★★★★</div><p>100 кг, 38 лет. Думала, мне нигде не рады. Здесь — рады. Тренер подобрал резинку, подобрал нагрузку, ни разу не было неловко.</p><div class="who"><div class="ava">Т</div><div><div class="nm">Татьяна М.</div><div class="src">2GIS · 5 мес назад</div></div></div></article>
+    </div>
+
+    <div class="platforms reveal">
+      <span class="lbl">Реальные оценки:</span>
+      <div class="plat"><div class="v"><span class="star">★</span>4.9</div><span>Яндекс.Карты · 412 отзывов</span></div>
+      <div class="plat"><div class="v"><span class="star">★</span>4.9</div><span>2GIS · 186 отзывов</span></div>
+      <div class="plat"><div class="v"><span class="star">★</span>5.0</div><span>Отзовик · 47 отзывов</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Promos ───────── -->
+<section id="promos" data-screen-label="15 Promos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="num">14</div>
+      <div class="head-text">
+        <span class="eyebrow pink">Акции</span>
+        <h2>Что предлагаем<br /><span class="grad-word">прямо сейчас</span></h2>
+      </div>
+    </div>
+
+    <div class="promos-grid">
+      <article class="promo promo-main reveal">
+        <div class="promo-tag">−33%</div>
+        <h3>Пробное за 1 000 ₽</h3>
+        <div class="promo-strike">1 500 ₽</div>
+        <p>Скидка 33% на первое занятие. Без обязательств — приходишь, пробуешь, решаешь.</p>
+        <a href="#final" class="btn btn-primary">
+          Записаться
+          <svg class="arrow" viewBox="0 0 14 10" fill="none"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+      <article class="promo reveal">
+        <div class="promo-tag">−10%</div>
+        <h3>Скидка на абонемент</h3>
+        <p>Если покупаешь абонемент в день пробного занятия — минус 10% от любого тарифа.</p>
+      </article>
+      <article class="promo reveal">
+        <div class="promo-tag">+4</div>
+        <h3>Приведи подругу</h3>
+        <p>За каждую приведённую подругу или сестру — до 4 дополнительных занятий к твоему абонементу.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FAQ ───────── -->
+<section style="background: var(--bg-tone);" id="faq" data-screen-label="16 FAQ">
+  <div class="wrap">
+    <div class="faq">
+      <div class="reveal">
+        <span class="eyebrow pink" style="margin-bottom:14px;display:block;">FAQ</span>
+        <h2 style="margin-bottom:24px;">Отвечаем на главные вопросы</h2>
+        <p class="lead">Не нашла свой? <a href="#final" style="color:var(--pink); border-bottom:1px solid currentColor;">Напиши нам</a> — ответим в WhatsApp за 15 минут.</p>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item"><div class="faq-q">А что если у меня не будет времени на занятия?<span class="toggle"></span></div><div class="faq-a">Все наши абонементы имеют срок действия от 1 до 6 месяцев — выбирай комфортный. Плюс в каждом есть гостевые посещения для подруги, чтобы тренировки не пропали. И заморозка — на случай форс-мажора.</div></div>
+        <div class="faq-item"><div class="faq-q">Для меня это дорого<span class="toggle"></span></div><div class="faq-a">Мы дороже сетевого клуба, потому что у нас группа 3–7 человек, а не 25. Один час с нашим тренером даёт результат, на который в обычном зале уходит 3 часа. Утренний абонемент — на 30% дешевле, а пробное стоит 1 000 ₽ — посчитай сама после первой тренировки.</div></div>
+        <div class="faq-item"><div class="faq-q">А что если не подойдёт расписание?<span class="toggle"></span></div><div class="faq-a">Расписание гибкое — занятия с 10:00 до 22:00 в будни, с 10:30 до 18:00 в выходные. На банджи в день обычно 4–6 слотов на выбор. Если ни один не подойдёт — поможем подобрать индивидуальные.</div></div>
+        <div class="faq-item"><div class="faq-q">Что будет, если не понравится тренер?<span class="toggle"></span></div><div class="faq-a">В студии 5 тренеров банджи, у каждого свой подход. Если конкретный тренер не зашёл — администратор поможет подобрать другого. У нас есть клиентки, которые ходят к двум тренерам по очереди — обе нравятся по-разному.</div></div>
+        <div class="faq-item"><div class="faq-q">Боюсь, что закончится мотивация<span class="toggle"></span></div><div class="faq-a">Это нормально, она у всех заканчивается. Поэтому у нас мини-группы — ты знаешь всех по именам, и пропустить тренировку «по тихому» не получится. Плюс программа меняется каждые 2 месяца — тебе не успевает наскучить.</div></div>
+        <div class="faq-item"><div class="faq-q">Я с лишним весом — выдержат ли резинки?<span class="toggle"></span></div><div class="faq-a">Резинки рассчитаны на вес до 120 кг. У нас занимаются клиентки и 100+ кг — это, наоборот, идеальный фитнес для них, потому что нет нагрузки на колени.</div></div>
+        <div class="faq-item"><div class="faq-q">У меня больная спина / колени / грыжа — можно?<span class="toggle"></span></div><div class="faq-a">Банджи разрабатывали в том числе как реабилитационный фитнес. Ударная нагрузка минимальная. Перед началом — консультация с тренером, при серьёзных диагнозах — справка от врача.</div></div>
+        <div class="faq-item"><div class="faq-q">Что надеть и взять с собой?<span class="toggle"></span></div><div class="faq-a">Лосины (обязательно — резинки трутся об открытую кожу), топ, носки. Воду. Душевая, фен, средства ухода — есть у нас, можно ничем не запасаться.</div></div>
+        <div class="faq-item"><div class="faq-q">Когда увижу результат?<span class="toggle"></span></div><div class="faq-a">Если ходишь 2–3 раза в неделю — минус 3–5 кг через месяц, минус 8–10 кг через 3 месяца. Без диет, при обычном питании.</div></div>
+        <div class="faq-item"><div class="faq-q">Можно ли мужчинам?<span class="toggle"></span></div><div class="faq-a">Группы только женские. Для мужчин — индивидуальные занятия, договариваемся отдельно.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── Final CTA ───────── -->
+<section class="final" id="final" data-screen-label="17 Final CTA">
+  <div class="wrap final-grid">
+    <div class="final-text reveal">
+      <span class="eyebrow on-dark">Финальный шаг</span>
+      <h2 style="margin-top:14px;">Попробуй <span class="grad">полёт</span></h2>
+      <p>Пробное занятие — <strong>1 000 ₽</strong> вместо 1 500 ₽. Без обязательств. Без давления продать абонемент сразу. Приходишь, летаешь час, решаешь.</p>
+      <div class="marks">
+        <div class="mark"><span class="ck">✓</span>Перезвоним за 15 минут в рабочее время</div>
+        <div class="mark"><span class="ck">✓</span>Согласуем удобное время и расскажем, что взять с собой</div>
+        <div class="mark"><span class="ck">✓</span>Если не подойдёт — больше не позвоним</div>
+      </div>
+    </div>
+
+    <form class="lead-form reveal" id="leadForm" novalidate>
+      <div id="formInner">
+        <h3>Записаться<br />на пробное</h3>
+        <div class="sub">Заполни 2 поля — остальное решим в WhatsApp</div>
+
+        <div class="field">
+          <label for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Как тебя зовут?" required />
+        </div>
+
+        <div class="field">
+          <label for="phone">Телефон</label>
+          <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___ __ __" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          Записаться на пробное · 1 000 ₽
+          <svg class="arrow" viewBox="0 0 14 10" fill="none"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <p class="privacy">Нажимая кнопку, ты соглашаешься с <a href="#">политикой конфиденциальности</a>.</p>
+      </div>
+
+      <div class="form-success" id="formSuccess">
+        <div class="check-big">✓</div>
+        <h3>Спасибо!</h3>
+        <p style="color:rgba(255,255,255,0.7); margin-top:10px;">Перезвоним за 15 минут.<br/>А пока загляни в WhatsApp — там расписание и анонсы.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ───────── SEO ───────── -->
+<section class="seo" data-screen-label="18 SEO">
+  <div class="wrap reveal">
+    <h2>Банджи-фитнес в Санкт-Петербурге — студия FLOW на Озерках</h2>
+    <p>FLOW — студия банджи-фитнеса в Санкт-Петербурге. Находимся на Озерках, на улице Есенина, в 5 минутах от метро. Работаем с 2019 года, прошло больше 1000 клиенток, средний рейтинг на Яндекс.Картах — 4,9.</p>
+    <p>Банджи-фитнес — это тренировка на эластичных резинках, прикреплённых к потолку. Резинки забирают часть веса тела, ты прыгаешь и кружишься «в воздухе», ударная нагрузка на колени и спину — минимальная. За одну тренировку сжигается 700–1000 ккал — это в два раза больше, чем обычное кардио в зале.</p>
+    <p>В отличие от сетевых фитнес-клубов, у нас занятия проходят в мини-группах по 3–7 человек. Это значит, что тренер видит каждую клиентку, успевает поправить технику и помочь, если что-то не получается. Программа обновляется каждые 2 месяца — тренировки не превращаются в рутину.</p>
+    <p>Кроме банджи, в студии есть ещё 9 направлений: пилатес, растяжка (включая растяжку в гамаках), функциональный тренинг, TRX, High Heels, здоровая спина, миофасциальный релиз, шпагат, Lady Style. Все направления доступны по единому абонементу.</p>
+    <p>Кому подходит банджи: тем, кто хочет похудеть без боли в мышцах; кому скучно в обычном зале; у кого проблемы с коленями или спиной и нельзя бегать; кто боится «качаться» и не хочет видимых мышц; кто пробовал диеты и они не работают.</p>
+    <p>Пробное занятие стоит 1 000 ₽ (скидка 33% от обычной цены 1 500 ₽). Без обязательств покупки абонемента. <a href="#final" style="color:var(--pink); border-bottom:1px solid currentColor;">Записаться</a> можно через форму на сайте, по телефону +7 (981) 002-24-08 или в WhatsApp.</p>
+  </div>
+</section>
+
+<!-- ───────── Footer ───────── -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo on-dark">
+          <img class="logo-full light" src="assets/images/Logo%20(2).svg" alt="FLOW" />
+          <img class="logo-full dark"  src="assets/images/Logo_dark.png" alt="" aria-hidden="true" />
+        </a>
+        <div class="logo-tag" style="margin-top:14px; opacity:0.55;">FEM TRAINING LAB · BUNGEE</div>
+        <p class="tag">Студия банджи-фитнеса в Санкт-Петербурге. 10 направлений по единому абонементу. Озерки.</p>
+      </div>
+
+      <div>
+        <h5>Навигация</h5>
+        <ul>
+          <li><a href="#directions">Направления</a></li>
+          <li><a href="#">Расписание</a></li>
+          <li><a href="#trainers">Тренеры</a></li>
+          <li><a href="#prices">Цены</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Контакты</h5>
+        <ul>
+          <li><a href="tel:+79810022408">+7 (981) 002-24-08</a></li>
+          <li><a href="#">WhatsApp</a></li>
+          <li><a href="https://vk.com/bungee_family" target="_blank" rel="noopener">vk.com/bungee_family</a></li>
+        </ul>
+        <h5 style="margin-top:24px;">Часы работы</h5>
+        <ul>
+          <li>пн–пт · 10:00–22:00</li>
+          <li>сб–вс · 10:30–18:00</li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Сеть</h5>
+        <ul>
+          <li><a href="index.html">FLOW Акробатика</a></li>
+          <li><a href="https://flowtraining.ru/" target="_blank" rel="noopener">flowtraining.ru</a></li>
+        </ul>
+        <h5 style="margin-top:24px;">Юридическое</h5>
+        <ul>
+          <li><a href="#">Договор оферты</a></li>
+          <li><a href="#">Правила студии</a></li>
+          <li><a href="#">Политика конфиденциальности</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2019–2026 FLOW · ИП Максимов О.&nbsp;В. · ИНН 784100775351 · ОГРНИП 318784700251171</div>
+      <div class="footer-legal">
+        <a href="#">Cookie</a>
+        <a href="#">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ───────── Sticky mobile CTA ───────── -->
+<div class="sticky-mobile">
+  <a href="#final" class="btn btn-primary">
+    Пробное · 1 000 ₽
+    <svg class="arrow" viewBox="0 0 14 10" fill="none"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</div>
+
+<script>
+  const header = document.getElementById('header');
+  const hero = document.querySelector('.hero');
+  function onScroll() {
+    const sc = window.scrollY;
+    header.classList.toggle('scrolled', sc > 20);
+    const heroBottom = hero.offsetHeight - 80;
+    header.classList.toggle('on-dark', sc < heroBottom);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  document.querySelectorAll('.faq-item').forEach(it => {
+    it.addEventListener('click', () => {
+      const open = it.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(x => { if (x !== it) x.classList.remove('open'); });
+      it.classList.toggle('open', !open);
+    });
+  });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Studio photo sliders
+  document.querySelectorAll('[data-slider]').forEach(slider => {
+    const track = slider.querySelector('.slider-track');
+    const slides = track.children;
+    const count = slides.length;
+    if (count < 2) return;
+    const dots = slider.querySelectorAll('.slider-dots .dot');
+    let idx = 0;
+    const go = n => {
+      idx = (n + count) % count;
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    };
+    slider.querySelector('.prev').addEventListener('click', () => go(idx - 1));
+    slider.querySelector('.next').addEventListener('click', () => go(idx + 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+    let startX = null;
+    slider.addEventListener('pointerdown', e => { startX = e.clientX; });
+    slider.addEventListener('pointerup', e => {
+      if (startX == null) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+    slider.addEventListener('pointercancel', () => { startX = null; });
+  });
+
+  const phoneInput = document.getElementById('phone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', e => {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.startsWith('8')) v = '7' + v.slice(1);
+      if (!v.startsWith('7')) v = '7' + v;
+      v = v.slice(0, 11);
+      let out = '+7';
+      if (v.length > 1) out += ' (' + v.slice(1, 4);
+      if (v.length >= 4) out += ') ' + v.slice(4, 7);
+      if (v.length >= 7) out += ' ' + v.slice(7, 9);
+      if (v.length >= 9) out += ' ' + v.slice(9, 11);
+      e.target.value = out;
+    });
+  }
+
+  const form = document.getElementById('leadForm');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    if (!name || phone.replace(/\D/g, '').length < 11) {
+      form.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }], { duration: 220 });
+      return;
+    }
+    document.getElementById('formInner').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      if (!id) return;
+      const t = document.getElementById(id);
+      if (!t) return;
+      e.preventDefault();
+      window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
